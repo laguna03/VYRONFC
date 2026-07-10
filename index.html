@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYRON Fitness Coaching | Transformación Física Personalizada</title>
+    <meta name="description" content="Entrenamiento personalizado presencial en Puerto Rico y online. Planes de pérdida de grasa, ganancia muscular y coaching de hábitos.">
+
+    <!-- Favicon placeholder (opcional, si no tienes aún) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Anton&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tu CSS (asegúrate de que esté en la misma carpeta) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // ⚠️ [PONER_AQUÍ_TU_PUBLIC_KEY_DE_EMAILJS_PARA_VYRON]
+        (function(){ emailjs.init({ publicKey: "[PONER_AQUÍ_TU_PUBLIC_KEY]" }); })();
+    </script>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-accent">VYRON</span>Fitness
+                <span class="logo-sub">COACHING</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services" class="nav-link" data-i18n="vyron.nav.services">Servicios</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="vyron.nav.about">Sobre Mí</a></li>
+                <li><a href="#results" class="nav-link" data-i18n="vyron.nav.results">Resultados</a></li>
+                <li><a href="#contact" class="nav-link nav-cta" data-i18n="vyron.nav.cta">Empieza Hoy</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <span class="eyebrow">ISSA CPT Certified</span>
+                <h1 class="hero-title">
+                    <span data-i18n="vyron.hero.title1">Transforma tu cuerpo.</span>
+                    <span class="accent-text" data-i18n="vyron.hero.title2">Construye disciplina y resultados</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="vyron.hero.sub">
+                    Entrenamiento 100% personalizado para tu estilo de vida. Ya sea presencial en Puerto Rico u online, te guiamos hacia tu mejor versión.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary" data-i18n="vyron.hero.cta">Obtener Evaluación Gratis</a>
+                    <!-- [PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON] -->
+                    <a href="https://wa.me/[PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON]?text=¡Hola%20VYRON!%20Vi%20tu%20página%20y%20estoy%20interesado%20en%20entrenar%20contigo." target="_blank" class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <span data-i18n="vyron.hero.whatsapp">Hablar por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="metric-card">
+                    <div class="metric-head">
+                        <span class="metric-head-label">Rendimiento en vivo</span>
+                        <span class="metric-live"><span class="live-dot"></span> En vivo</span>
+                    </div>
+                    <div class="metric-body">
+                        <div class="metric-row">
+                            <div>
+                                <div class="metric-block-title">Progreso del cliente</div>
+                                <div class="metric-num">87<small>%</small></div>
+                            </div>
+                            <div>
+                                <div class="metric-block-title">Meta</div>
+                                <div class="metric-num" style="color: var(--silver-dim);">100<small>%</small></div>
+                            </div>
+                        </div>
+                        <div class="metric-bars">
+                            <div class="metric-bar-item animate">
+                                <div class="metric-bar-label"><span>Fuerza</span><span>92%</span></div>
+                                <div class="metric-bar-track"><div class="metric-bar-fill" style="--fill: 92%;"></div></div>
+                            </div>
+                            <div class="metric-bar-item animate">
+                                <div class="metric-bar-label"><span>Resistencia</span><span>78%</span></div>
+                                <div class="metric-bar-track"><div class="metric-bar-fill" style="--fill: 78%;"></div></div>
+                            </div>
+                            <div class="metric-bar-item animate">
+                                <div class="metric-bar-label"><span>Composición</span><span>64%</span></div>
+                                <div class="metric-bar-track"><div class="metric-bar-fill" style="--fill: 64%;"></div></div>
+                            </div>
+                        </div>
+                        <div class="metric-week-strip">
+                            <div class="week-day done">L</div>
+                            <div class="week-day done">M</div>
+                            <div class="week-day done">M</div>
+                            <div class="week-day done">J</div>
+                            <div class="week-day done">V</div>
+                            <div class="week-day">S</div>
+                            <div class="week-day">D</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-badge fb-1">
+                    <div>
+                        <strong>+42%</strong>
+                        <span>Más fuerza en 8 semanas</span>
+                    </div>
+                </div>
+                <div class="floating-badge fb-2">
+                    <div>
+                        <strong>100%</strong>
+                        <span>Compromiso garantizado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow" data-i18n="vyron.services.tag">Programas</span>
+                <h2 class="section-title"><span data-i18n="vyron.services.title">Entrenamiento </span><span class="accent-text" data-i18n="vyron.services.title2">Personalizado</span></h2>
+                <p class="section-subtitle" data-i18n="vyron.services.sub">No creemos en rutinas genéricas. Cada plan está diseñado exclusivamente para tus metas.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <span class="service-num">01</span>
+                    <div class="service-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 20h12M12 4v16M4 4l2 2M20 4l-2 2"/></svg></div>
+                    <h3 data-i18n="vyron.services.s1.title">1 a 1 Presencial</h3>
+                    <p data-i18n="vyron.services.s1.desc">Sesiones privadas en Puerto Rico con supervisión directa y corrección de técnica.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-num">02</span>
+                    <div class="service-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+                    <h3 data-i18n="vyron.services.s2.title">Coaching Online</h3>
+                    <p data-i18n="vyron.services.s2.desc">Planes de entrenamiento, videos y seguimiento semanal para que entrenes donde quieras.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-num">03</span>
+                    <div class="service-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2M2 12h4M18 12h4"/></svg></div>
+                    <h3 data-i18n="vyron.services.s3.title">Pérdida de Grasa</h3>
+                    <p data-i18n="vyron.services.s3.desc">Programas basados en déficit calórico y hábitos sostenibles.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-num">04</span>
+                    <div class="service-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2M2 12h4M18 12h4"/></svg></div>
+                    <h3 data-i18n="vyron.services.s4.title">Ganancia Muscular</h3>
+                    <p data-i18n="vyron.services.s4.desc">Planes de hipertrofia con progresión de cargas y nutrición estratégica.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-num">05</span>
+                    <div class="service-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2M2 12h4M18 12h4"/></svg></div>
+                    <h3 data-i18n="vyron.services.s5.title">Evaluaciones Físicas</h3>
+                    <p data-i18n="vyron.services.s5.desc">Análisis de composición corporal y diseño de plan de acción a corto y largo plazo.</p>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-num">06</span>
+                    <div class="service-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 2.72h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                    <h3 data-i18n="vyron.services.s6.title">Seguimiento Semanal</h3>
+                    <p data-i18n="vyron.services.s6.desc">Acompañamiento constante, ajuste de cargas y asesoría de hábitos saludables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT (Sobre mí) ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow" data-i18n="vyron.about.tag">Entrenador</span>
+                <h2 class="section-title"><span data-i18n="vyron.about.title">Comprometido con tus </span><span class="accent-text" data-i18n="vyron.about.title2">Resultados Reales</span></h2>
+            </div>
+            <div class="manifesto-grid">
+                <div class="about-image" style="background: var(--bg-2); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--line-strong); color: var(--silver-dim); font-family: var(--ff-mono); border-radius: var(--radius-lg);">
+                    [Foto del Entrenador en acción]
+                </div>
+                <div class="about-text">
+                    <h3 data-i18n="vyron.about.subtitle">No soy un entrenador cualquiera</h3>
+                    <p data-i18n="vyron.about.desc1">
+                        Mi enfoque no es vender rutinas genéricas, sino crear planes personalizados que desarrollen fuerza, disciplina, salud y una transformación física sostenible.
+                    </p>
+                    <p data-i18n="vyron.about.desc2">
+                        Con certificación ISSA CPT, trabajo con hombres y mujeres de 18 a 50 años que buscan perder grasa, ganar masa muscular o mejorar su condición física, con el nivel de compromiso que merecen.
+                    </p>
+                    <div class="stat-box">
+                        <div><strong>+50</strong> <span data-i18n="vyron.about.clients">Clientes transformados</span></div>
+                        <div><strong>100%</strong> <span data-i18n="vyron.about.commitment">Compromiso garantizado</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS (Resultados) ===== -->
+    <section class="transformations" id="results">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow" data-i18n="vyron.results.tag">Transformaciones</span>
+                <h2 class="section-title"><span data-i18n="vyron.results.title">Resultados que </span><span class="accent-text" data-i18n="vyron.results.title2">Hablan por sí solos</span></h2>
+            </div>
+            <div class="transform-grid">
+                <div class="transform-card">
+                    <div class="transform-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l4 4M20 4l-4 4M4 20l4-4M20 20l-4-4"/></svg></div>
+                    <span class="transform-label">Antes / Después</span>
+                </div>
+                <div class="transform-card">
+                    <div class="transform-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2M2 12h4M18 12h4"/></svg></div>
+                    <span class="transform-label">Antes / Después</span>
+                </div>
+                <div class="transform-card">
+                    <div class="transform-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+                    <span class="transform-label">Antes / Después</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT (Formulario) ===== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-left reveal">
+                    <span class="eyebrow" data-i18n="vyron.contact.tag">Empieza Hoy</span>
+                    <h2><span data-i18n="vyron.contact.title">¿Listo para transformar </span><br><span class="accent-text" data-i18n="vyron.contact.title2">tu físico y tu salud?</span></h2>
+                    <p data-i18n="vyron.contact.sub">Llena el formulario para una evaluación física gratuita y sin compromiso. Te responderé en menos de 24 horas.</p>
+                    <div class="contact-perks">
+                        <div class="perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="vyron.contact.perk1">Evaluación gratuita</span></div>
+                        <div class="perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="vyron.contact.perk2">Plan personalizado en 24h</span></div>
+                        <div class="perk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="vyron.contact.perk3">Sin compromiso</span></div>
+                    </div>
+                    <a href="https://wa.me/[PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON]?text=¡Hola!%20Quiero%20más%20info%20sobre%20los%20entrenamientos." target="_blank" class="whatsapp-cta">
+                        <div class="whatsapp-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                        <div class="whatsapp-cta-text">
+                            <strong data-i18n="vyron.contact.whatsapp">Escríbeme por WhatsApp</strong>
+                            <span>Respuesta en < 10 min</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="contact-right reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label data-i18n="vyron.f.name">Tu Nombre</label>
+                                <input type="text" name="from_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="vyron.f.phone">Teléfono / WhatsApp</label>
+                                <input type="text" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label data-i18n="vyron.f.email">Email</label>
+                                <input type="email" name="reply_to">
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="vyron.f.age">Edad</label>
+                                <input type="number" name="age" min="12" max="99">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="vyron.f.service">Servicio de Interés</label>
+                            <select name="service">
+                                <option value="Entrenamiento 1 a 1 Presencial" data-i18n="vyron.f.s1">Entrenamiento 1 a 1 Presencial</option>
+                                <option value="Coaching Online" data-i18n="vyron.f.s2">Coaching Online</option>
+                                <option value="Pérdida de Grasa" data-i18n="vyron.f.s3">Pérdida de Grasa</option>
+                                <option value="Ganancia Muscular" data-i18n="vyron.f.s4">Ganancia Muscular</option>
+                                <option value="Evaluación Física" data-i18n="vyron.f.s5">Evaluación Física</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="vyron.f.goal">¿Cuál es tu objetivo principal?</label>
+                            <select name="goal">
+                                <option value="Perder grasa" data-i18n="vyron.f.g1">Perder grasa</option>
+                                <option value="Ganar masa muscular" data-i18n="vyron.f.g2">Ganar masa muscular</option>
+                                <option value="Mejorar condición física" data-i18n="vyron.f.g3">Mejorar condición física</option>
+                                <option value="Entrenamiento deportivo" data-i18n="vyron.f.g4">Entrenamiento deportivo</option>
+                                <option value="Otro" data-i18n="vyron.f.g5">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="vyron.f.message">Mensaje (cuéntame sobre ti)</label>
+                            <textarea rows="3" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <span data-i18n="vyron.f.send">Enviar y obtener evaluación</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span style="font-family: var(--ff-display); font-size: 1.3rem; letter-spacing: 1px; color: var(--white);">
+                        <span class="logo-accent">VYRON</span>Fitness
+                    </span>
+                    <p data-i18n="vyron.footer.tagline">Transformación física real con planes 100% personalizados.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="vyron.footer.nav">Navegación</h4>
+                    <ul>
+                        <li><a href="#services" data-i18n="vyron.footer.nav.services">Servicios</a></li>
+                        <li><a href="#about" data-i18n="vyron.footer.nav.about">Sobre Mí</a></li>
+                        <li><a href="#results" data-i18n="vyron.footer.nav.results">Resultados</a></li>
+                        <li><a href="#contact" data-i18n="vyron.footer.nav.contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="vyron.footer.contact">Contáctame</h4>
+                    <p class="footer-contact-item">[PONER_AQUÍ_EL_CORREO_DE_VYRON]</p>
+                    <p class="footer-contact-item">[PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON]</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="vyron.footer.rights">© 2026 VYRON Fitness Coaching. Todos los derechos reservados.</p>
+                <p data-i18n="vyron.footer.credit">Powered by LAGVNSoftware.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
