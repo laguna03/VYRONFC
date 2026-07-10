@@ -1,292 +1,305 @@
 /* =============================================
-   LANDING PAGE VYRON FITNESS — script.js
+   VYRON FITNESS - TRANSLATIONS ENGINE
    ============================================= */
 
 const translations = {
     es: {
-        'vyron.nav.services': 'Servicios',
-        'vyron.nav.about': 'Sobre Mí',
-        'vyron.nav.results': 'Resultados',
-        'vyron.nav.cta': 'Empieza Hoy',
-        'vyron.hero.title1': 'Transforma tu cuerpo.',
-        'vyron.hero.title2': 'Construye disciplina y resultados',
-        'vyron.hero.sub': 'Entrenamiento 100% personalizado para tu estilo de vida. Ya sea presencial en Puerto Rico u online, te guiamos hacia tu mejor versión.',
-        'vyron.hero.cta': 'Obtener Evaluación Gratis',
-        'vyron.hero.whatsapp': 'Hablar por WhatsApp',
-        'vyron.services.tag': 'Programas',
-        'vyron.services.title': 'Entrenamiento ',
-        'vyron.services.title2': 'Personalizado',
-        'vyron.services.sub': 'No creemos en rutinas genéricas. Cada plan está diseñado exclusivamente para tus metas.',
-        'vyron.services.s1.title': '1 a 1 Presencial',
-        'vyron.services.s1.desc': 'Sesiones privadas en Puerto Rico con supervisión directa y corrección de técnica.',
-        'vyron.services.s2.title': 'Coaching Online',
-        'vyron.services.s2.desc': 'Planes de entrenamiento, videos y seguimiento semanal para que entrenes donde quieras.',
-        'vyron.services.s3.title': 'Pérdida de Grasa',
-        'vyron.services.s3.desc': 'Programas basados en déficit calórico y hábitos sostenibles.',
-        'vyron.services.s4.title': 'Ganancia Muscular',
-        'vyron.services.s4.desc': 'Planes de hipertrofia con progresión de cargas y nutrición estratégica.',
-        'vyron.services.s5.title': 'Evaluaciones Físicas',
-        'vyron.services.s5.desc': 'Análisis de composición corporal y diseño de plan de acción a corto y largo plazo.',
-        'vyron.services.s6.title': 'Seguimiento Semanal',
-        'vyron.services.s6.desc': 'Acompañamiento constante, ajuste de cargas y asesoría de hábitos saludables.',
-        'vyron.about.tag': 'Entrenador',
-        'vyron.about.title': 'Comprometido con tus ',
-        'vyron.about.title2': 'Resultados Reales',
-        'vyron.about.subtitle': 'No soy un entrenador cualquiera',
-        'vyron.about.desc1': 'Mi enfoque no es vender rutinas genéricas, sino crear planes personalizados que desarrollen fuerza, disciplina, salud y una transformación física sostenible.',
-        'vyron.about.desc2': 'Con certificación ISSA CPT, trabajo con hombres y mujeres de 18 a 50 años que buscan perder grasa, ganar masa muscular o mejorar su condición física, con el nivel de compromiso que merecen.',
-        'vyron.about.clients': 'Clientes transformados',
-        'vyron.about.commitment': 'Compromiso garantizado',
-        'vyron.results.tag': 'Transformaciones',
-        'vyron.results.title': 'Resultados que ',
-        'vyron.results.title2': 'Hablan por sí solos',
-        'vyron.contact.tag': 'Empieza Hoy',
-        'vyron.contact.title': '¿Listo para transformar ',
-        'vyron.contact.title2': 'tu físico y tu salud?',
-        'vyron.contact.sub': 'Llena el formulario para una evaluación física gratuita y sin compromiso. Te responderé en menos de 24 horas.',
-        'vyron.contact.perk1': 'Evaluación gratuita',
-        'vyron.contact.perk2': 'Plan personalizado en 24h',
-        'vyron.contact.perk3': 'Sin compromiso',
-        'vyron.contact.whatsapp': 'Escríbeme por WhatsApp',
-        'vyron.f.name': 'Tu Nombre',
-        'vyron.f.phone': 'Teléfono / WhatsApp',
-        'vyron.f.email': 'Email',
-        'vyron.f.age': 'Edad',
-        'vyron.f.service': 'Servicio de Interés',
-        'vyron.f.s1': 'Entrenamiento 1 a 1 Presencial',
-        'vyron.f.s2': 'Coaching Online',
-        'vyron.f.s3': 'Pérdida de Grasa',
-        'vyron.f.s4': 'Ganancia Muscular',
-        'vyron.f.s5': 'Evaluación Física',
-        'vyron.f.goal': '¿Cuál es tu objetivo principal?',
-        'vyron.f.g1': 'Perder grasa',
-        'vyron.f.g2': 'Ganar masa muscular',
-        'vyron.f.g3': 'Mejorar condición física',
-        'vyron.f.g4': 'Entrenamiento deportivo',
-        'vyron.f.g5': 'Otro',
-        'vyron.f.message': 'Mensaje (cuéntame sobre ti)',
-        'vyron.f.send': 'Enviar y obtener evaluación',
-        'vyron.footer.tagline': 'Transformación física real con planes 100% personalizados.',
-        'vyron.footer.nav': 'Navegación',
-        'vyron.footer.nav.services': 'Servicios',
-        'vyron.footer.nav.about': 'Sobre Mí',
-        'vyron.footer.nav.results': 'Resultados',
-        'vyron.footer.nav.contact': 'Contacto',
-        'vyron.footer.contact': 'Contáctame',
-        'vyron.footer.rights': '© 2026 VYRON Fitness Coaching. Todos los derechos reservados.',
-        'vyron.footer.credit': 'Powered by LAGVNSoftware.',
-        'vyron.contact.success': '¡Mensaje enviado! En menos de 24 horas recibirás tu evaluación personalizada.',
-        'vyron.contact.sending': 'Enviando...',
-        'vyron.site.title': 'VYRON Fitness Coaching | Transformación Física Personalizada'
+        'site.title': 'VYRON | Forja tu Mejor Versión',
+        'nav.programs': 'Programas',
+        'nav.about': 'El Método',
+        'nav.results': 'Resultados',
+        'nav.cta': 'Evaluación Gratis',
+        'hero.badge': 'ISSA CPT CERTIFIED',
+        'hero.line1': 'NO',
+        'hero.line2': 'TE',
+        'hero.line3': 'RINDAS',
+        'hero.desc': 'El único mal entrenamiento es el que no empiezas. Rutinas 100% personalizadas, sin excusas, sin genéricos.',
+        'hero.btn1': 'Iniciar Transformación',
+        'hero.btn2': 'WhatsApp',
+        'hero.stat1_num': '+50',
+        'hero.stat1': 'Transformaciones',
+        'hero.stat2_num': '100%',
+        'hero.stat2': 'Compromiso',
+        'programs.tag': 'Programas',
+        'programs.title1': 'Diseñados para',
+        'programs.title2': 'tu cuerpo',
+        'programs.sub': 'No todos los cuerpos son iguales. Por eso cada plan es único.',
+        'programs.p1.title': '1 a 1 Presencial',
+        'programs.p1.desc': 'Técnica impecable, motivación directa y resultados en cada sesión. Puerto Rico.',
+        'programs.p2.title': 'Coaching Online',
+        'programs.p2.desc': 'Entrena desde donde estés. Planes con video, ajuste de cargas y seguimiento.',
+        'programs.p3.title': 'Pérdida de Grasa',
+        'programs.p3.desc': 'Estrategias avanzadas de déficit calórico y hábitos que se quedan contigo.',
+        'programs.p4.title': 'Ganancia Muscular',
+        'programs.p4.desc': 'Hipertrofia con progresión real, nutrición adaptada y biomecánica pura.',
+        'about.tag': 'El Método',
+        'about.title1': 'No soy un',
+        'about.title2': 'entrenador',
+        'about.title3': 'de gimnasio.',
+        'about.desc': 'Soy un arquitecto de cuerpos. No vendo rutinas genéricas; construyo sistemas que desarrollan fuerza, confianza y una versión de ti que no sabías que existía. Certificación ISSA CPT + años de resultados reales.',
+        'about.stat1_num': '6+',
+        'about.stat1': 'Años forjando atletas',
+        'about.stat2_num': '50+',
+        'about.stat2': 'Clientes transformados',
+        'results.tag': 'Transformaciones',
+        'results.title1': 'Resultados que',
+        'results.title2': 'gritan',
+        'results.placeholder': 'ANTES / DESPUÉS',
+        'contact.tag': 'Empieza hoy',
+        'contact.title1': '¿Listo para',
+        'contact.title2': 'romper',
+        'contact.title3': 'tus límites?',
+        'contact.desc': 'Llena el formulario. Recibirás una evaluación física completa y un plan de acción. Sin compromiso. Respuesta en <strong>menos de 24h</strong>.',
+        'contact.perk1': 'Evaluación gratuita',
+        'contact.perk2': 'Plan 100% personalizado',
+        'contact.perk3': 'Sin ataduras',
+        'contact.f.name': 'Tu nombre completo',
+        'contact.f.phone': 'Teléfono / WhatsApp',
+        'contact.f.email': 'Correo electrónico',
+        'contact.f.age': 'Tu edad',
+        'contact.f.s0': 'Servicio de interés',
+        'contact.f.s1': '1 a 1 Presencial',
+        'contact.f.s2': 'Coaching Online',
+        'contact.f.s3': 'Pérdida de Grasa',
+        'contact.f.s4': 'Ganancia Muscular',
+        'contact.f.g0': 'Objetivo principal',
+        'contact.f.g1': 'Perder grasa',
+        'contact.f.g2': 'Ganar músculo',
+        'contact.f.g3': 'Mejorar condición',
+        'contact.f.g4': 'Rendimiento deportivo',
+        'contact.f.g5': 'Otro',
+        'contact.f.msg': 'Cuéntame sobre ti y tus metas...',
+        'contact.f.send': 'Enviar y obtener mi plan',
+        'footer.desc': 'Transformación física sin concesiones. 100% personalizado.',
+        'footer.l1': 'Programas',
+        'footer.l2': 'El Método',
+        'footer.l3': 'Resultados',
+        'footer.l4': 'Contacto',
+        'footer.copy': '© 2026 VYRON Fitness. Powered by LAGVNSoftware.',
+        'contact.time': 'menos de 24h'
     },
     en: {
-        'vyron.nav.services': 'Services',
-        'vyron.nav.about': 'About Me',
-        'vyron.nav.results': 'Results',
-        'vyron.nav.cta': 'Start Today',
-        'vyron.hero.title1': 'Transform your body.',
-        'vyron.hero.title2': 'Build discipline and results',
-        'vyron.hero.sub': '100% personalized training for your lifestyle. Whether in-person in Puerto Rico or online, we guide you to your best version.',
-        'vyron.hero.cta': 'Get a Free Assessment',
-        'vyron.hero.whatsapp': 'Chat on WhatsApp',
-        'vyron.services.tag': 'Programs',
-        'vyron.services.title': 'Personalized ',
-        'vyron.services.title2': 'Training',
-        'vyron.services.sub': 'We don\'t believe in generic routines. Every plan is designed exclusively for your goals.',
-        'vyron.services.s1.title': '1-on-1 In-Person',
-        'vyron.services.s1.desc': 'Private sessions in Puerto Rico with direct supervision and technique correction.',
-        'vyron.services.s2.title': 'Online Coaching',
-        'vyron.services.s2.desc': 'Training plans, videos and weekly check-ins so you can train wherever you are.',
-        'vyron.services.s3.title': 'Fat Loss',
-        'vyron.services.s3.desc': 'Programs based on caloric deficit and sustainable habits.',
-        'vyron.services.s4.title': 'Muscle Gain',
-        'vyron.services.s4.desc': 'Hypertrophy plans with progressive overload and strategic nutrition.',
-        'vyron.services.s5.title': 'Physical Assessments',
-        'vyron.services.s5.desc': 'Body composition analysis and short/long-term action plans.',
-        'vyron.services.s6.title': 'Weekly Follow-up',
-        'vyron.services.s6.desc': 'Constant support, load adjustments, and healthy habit coaching.',
-        'vyron.about.tag': 'Trainer',
-        'vyron.about.title': 'Committed to Your ',
-        'vyron.about.title2': 'Real Results',
-        'vyron.about.subtitle': 'I am not just any trainer',
-        'vyron.about.desc1': 'My focus is not to sell generic routines, but to create personalized plans that build strength, discipline, health, and sustainable physical transformation.',
-        'vyron.about.desc2': 'With ISSA CPT certification, I work with men and women aged 18 to 50 looking to lose fat, gain muscle or improve fitness, with the commitment they deserve.',
-        'vyron.about.clients': 'Clients transformed',
-        'vyron.about.commitment': 'Guaranteed commitment',
-        'vyron.results.tag': 'Transformations',
-        'vyron.results.title': 'Results that ',
-        'vyron.results.title2': 'Speak for themselves',
-        'vyron.contact.tag': 'Start Today',
-        'vyron.contact.title': 'Ready to transform ',
-        'vyron.contact.title2': 'your body and health?',
-        'vyron.contact.sub': 'Fill out the form for a free physical assessment with no commitment. I will reply within 24 hours.',
-        'vyron.contact.perk1': 'Free assessment',
-        'vyron.contact.perk2': 'Custom plan in 24h',
-        'vyron.contact.perk3': 'No commitment',
-        'vyron.contact.whatsapp': 'Text me on WhatsApp',
-        'vyron.f.name': 'Your Name',
-        'vyron.f.phone': 'Phone / WhatsApp',
-        'vyron.f.email': 'Email',
-        'vyron.f.age': 'Age',
-        'vyron.f.service': 'Service of Interest',
-        'vyron.f.s1': '1-on-1 In-Person Training',
-        'vyron.f.s2': 'Online Coaching',
-        'vyron.f.s3': 'Fat Loss',
-        'vyron.f.s4': 'Muscle Gain',
-        'vyron.f.s5': 'Physical Assessment',
-        'vyron.f.goal': 'What is your main goal?',
-        'vyron.f.g1': 'Lose fat',
-        'vyron.f.g2': 'Build muscle',
-        'vyron.f.g3': 'Improve fitness',
-        'vyron.f.g4': 'Sports training',
-        'vyron.f.g5': 'Other',
-        'vyron.f.message': 'Message (tell me about you)',
-        'vyron.f.send': 'Send & get your assessment',
-        'vyron.footer.tagline': 'Real physical transformation with 100% personalized plans.',
-        'vyron.footer.nav': 'Quick Links',
-        'vyron.footer.nav.services': 'Services',
-        'vyron.footer.nav.about': 'About Me',
-        'vyron.footer.nav.results': 'Results',
-        'vyron.footer.nav.contact': 'Contact',
-        'vyron.footer.contact': 'Get In Touch',
-        'vyron.footer.rights': '© 2026 VYRON Fitness Coaching. All rights reserved.',
-        'vyron.footer.credit': 'Powered by LAGVNSoftware.',
-        'vyron.contact.success': 'Message sent! Within 24 hours you will receive your personalized assessment.',
-        'vyron.contact.sending': 'Sending...',
-        'vyron.site.title': 'VYRON Fitness Coaching | Personalized Physical Transformation'
+        'site.title': 'VYRON | Forge Your Best Version',
+        'nav.programs': 'Programs',
+        'nav.about': 'The Method',
+        'nav.results': 'Results',
+        'nav.cta': 'Free Assessment',
+        'hero.badge': 'ISSA CPT CERTIFIED',
+        'hero.line1': 'DO NOT',
+        'hero.line2': 'GIVE',
+        'hero.line3': 'UP',
+        'hero.desc': 'The only bad workout is the one you don\'t start. 100% customized routines, no excuses, no generic plans.',
+        'hero.btn1': 'Start Transformation',
+        'hero.btn2': 'WhatsApp',
+        'hero.stat1_num': '+50',
+        'hero.stat1': 'Transformations',
+        'hero.stat2_num': '100%',
+        'hero.stat2': 'Commitment',
+        'programs.tag': 'Programs',
+        'programs.title1': 'Designed for',
+        'programs.title2': 'your body',
+        'programs.sub': 'Not all bodies are the same. That is why every plan is unique.',
+        'programs.p1.title': '1-on-1 In-Person',
+        'programs.p1.desc': 'Flawless technique, direct motivation, and results every session. Puerto Rico.',
+        'programs.p2.title': 'Online Coaching',
+        'programs.p2.desc': 'Train from anywhere. Video plans, load adjustments, and weekly follow-ups.',
+        'programs.p3.title': 'Fat Loss',
+        'programs.p3.desc': 'Advanced caloric deficit strategies and habits that stay with you.',
+        'programs.p4.title': 'Muscle Gain',
+        'programs.p4.desc': 'Hypertrophy with real progression, adapted nutrition, and pure biomechanics.',
+        'about.tag': 'The Method',
+        'about.title1': 'I am not just a',
+        'about.title2': 'trainer',
+        'about.title3': 'at the gym.',
+        'about.desc': 'I am a body architect. I do not sell generic routines; I build systems that develop strength, confidence, and a version of you you did not know existed. ISSA CPT certification + years of real results.',
+        'about.stat1_num': '6+',
+        'about.stat1': 'Years forging athletes',
+        'about.stat2_num': '50+',
+        'about.stat2': 'Clients transformed',
+        'results.tag': 'Transformations',
+        'results.title1': 'Results that',
+        'results.title2': 'scream',
+        'results.placeholder': 'BEFORE / AFTER',
+        'contact.tag': 'Start today',
+        'contact.title1': 'Ready to',
+        'contact.title2': 'break',
+        'contact.title3': 'your limits?',
+        'contact.desc': 'Fill out the form. You will receive a full physical assessment and action plan. No commitment. Response in <strong>less than 24h</strong>.',
+        'contact.perk1': 'Free assessment',
+        'contact.perk2': '100% customized plan',
+        'contact.perk3': 'No strings attached',
+        'contact.f.name': 'Your full name',
+        'contact.f.phone': 'Phone / WhatsApp',
+        'contact.f.email': 'Email address',
+        'contact.f.age': 'Your age',
+        'contact.f.s0': 'Service of interest',
+        'contact.f.s1': '1-on-1 In-Person',
+        'contact.f.s2': 'Online Coaching',
+        'contact.f.s3': 'Fat Loss',
+        'contact.f.s4': 'Muscle Gain',
+        'contact.f.g0': 'Main goal',
+        'contact.f.g1': 'Lose fat',
+        'contact.f.g2': 'Build muscle',
+        'contact.f.g3': 'Improve fitness',
+        'contact.f.g4': 'Sports performance',
+        'contact.f.g5': 'Other',
+        'contact.f.msg': 'Tell me about yourself and your goals...',
+        'contact.f.send': 'Send & get my plan',
+        'footer.desc': 'Physical transformation with no concessions. 100% customized.',
+        'footer.l1': 'Programs',
+        'footer.l2': 'The Method',
+        'footer.l3': 'Results',
+        'footer.l4': 'Contact',
+        'footer.copy': '© 2026 VYRON Fitness. Powered by LAGVNSoftware.',
+        'contact.time': 'less than 24h'
     }
 };
 
-let currentLang = localStorage.getItem('lang') || 'es';
+/* =============================================
+   ENGINE: LANG MANAGEMENT & RENDER
+   ============================================= */
+
+let currentLang = localStorage.getItem('vyronLang') || 'es';
 
 function applyTranslations(lang) {
     const t = translations[lang];
+    if (!t) return;
+
+    // Actualizar todos los textos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
-        if (t[key] !== undefined) el.textContent = t[key];
+        if (t[key] !== undefined) {
+            el.innerHTML = t[key];
+        }
     });
-    document.documentElement.lang = lang;
-    if (t['vyron.site.title']) document.title = t['vyron.site.title'];
+
+    // Actualizar placeholders de inputs/textarea
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (t[key] !== undefined) {
+            el.placeholder = t[key];
+        }
+    });
+
+    // Actualizar el título de la página
+    if (t['site.title']) {
+        document.title = t['site.title'];
+    }
+
+    // Actualizar el estado activo del botón de idioma
+    document.querySelectorAll('.lang-opt').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Guardar preferencia
+    localStorage.setItem('vyronLang', lang);
 }
 
+/* =============================================
+   DOM READY
+   ============================================= */
 document.addEventListener('DOMContentLoaded', () => {
 
-    const navbar = document.getElementById('navbar');
+    // Aplicar idioma guardado al cargar
+    applyTranslations(currentLang);
+
+    // Lógica del botón de idioma
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            applyTranslations(currentLang);
+        });
+    }
+
+    // ===== NAVBAR & MENÚ MÓVIL =====
+    const navbar = document.querySelector('.navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        navbar.classList.toggle('scrolled', window.scrollY > 30);
     });
 
-    if(hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('open');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('open');
         });
-        navLinks.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('open');
-                navLinks.classList.remove('open');
-            });
-        });
-    }
+    });
 
-    const revealEls = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
-                const index = siblings.indexOf(entry.target);
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 80);
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    // ===== EMAILJS =====
+    // ⚠️ REEMPLAZA ESTOS VALORES
+    const SERVICE_ID = '[PONER_AQUÍ_TU_SERVICE_ID]';
+    const TEMPLATE_ID = '[PONER_AQUÍ_TU_TEMPLATE_ID]';
 
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    /* -------------------------------------------
-       CONTACT FORM — VYRON SPECIFIC
-       ⚠️ REEMPLAZA ESTOS IDs CON TUS NUEVOS IDs PARA VYRON
-    ------------------------------------------- */
-    const EMAILJS_SERVICE_ID          = '[PONER_AQUÍ_TU_SERVICE_ID_VYRON]';
-    const EMAILJS_TEMPLATE_ID         = '[PONER_AQUÍ_TU_TEMPLATE_ID_VYRON]';
-    const EMAILJS_WELCOME_TEMPLATE_ID = '[PONER_AQUÍ_TU_WELCOME_TEMPLATE_ID_VYRON]';
-
-    const contactForm = document.getElementById('contactForm');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            if (typeof emailjs === 'undefined') {
-                alert('Error: EmailJS no se cargó. Verifica tu conexión a internet.');
-                return;
-            }
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
 
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const originalHTML = submitBtn.innerHTML;
-            const sendingLabel = translations[currentLang]['vyron.contact.sending'] || 'Enviando...';
-            submitBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.9s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> ${sendingLabel}`;
-            submitBtn.disabled = true;
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
 
-            const formData = {
-                from_name : contactForm.querySelector('[name="from_name"]').value.trim(),
-                phone     : contactForm.querySelector('[name="phone"]').value.trim(),
-                reply_to  : contactForm.querySelector('[name="reply_to"]').value.trim(),
-                age       : contactForm.querySelector('[name="age"]').value.trim(),
-                service   : contactForm.querySelector('[name="service"]').value,
-                goal      : contactForm.querySelector('[name="goal"]').value,
-                message   : contactForm.querySelector('[name="message"]').value.trim()
+            const data = {
+                from_name : form.querySelector('[name="from_name"]').value.trim(),
+                phone     : form.querySelector('[name="phone"]').value.trim(),
+                reply_to  : form.querySelector('[name="reply_to"]').value.trim(),
+                age       : form.querySelector('[name="age"]').value.trim(),
+                service   : form.querySelector('[name="service"]').value,
+                goal      : form.querySelector('[name="goal"]').value,
+                message   : form.querySelector('[name="message"]').value.trim(),
+                to_email  : 'lagvnsoftware@gmail.com'
             };
 
-            const notifParams = {
-                ...formData,
-                to_email : 'lagvnsoftware@gmail.com',
-                to_name  : 'Pedro',
-            };
-
-            const welcomeParams = {
-                ...formData,
-                to_email : formData.reply_to,
-                to_name  : formData.from_name,
-            };
-
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, notifParams)
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
                 .then(() => {
-                    if (formData.reply_to) {
-                        return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, welcomeParams);
-                    }
-                    return Promise.resolve();
-                })
-                .then(() => {
-                    const successMsg = translations[currentLang]['vyron.contact.success'] || '¡Mensaje enviado!';
-                    contactForm.innerHTML = `<div class="form-success" style="display:block; text-align:center;">${successMsg}</div>`;
+                    const msg = currentLang === 'es'
+                        ? ' ¡Mensaje enviado! Recibirás tu evaluación en menos de 24 horas.'
+                        : ' Message sent! You will receive your assessment in less than 24 hours.';
+
+                    form.innerHTML = `
+                        <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; border-radius: 20px; padding: 24px; text-align: center; color: #FFFFFF; font-weight: 600; font-size: 1.1rem;">
+                            ${msg}
+                        </div>
+                    `;
                 })
                 .catch((error) => {
-                    console.error(error);
-                    submitBtn.innerHTML = originalHTML;
-                    submitBtn.disabled = false;
-                    alert('Hubo un error enviando el mensaje. Por favor, intenta de nuevo.');
+                    console.error('Error:', error);
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    alert('Error al enviar. Por favor, inténtalo de nuevo.');
                 });
         });
     }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (!target) return;
-            e.preventDefault();
-            const navHeight = navbar.offsetHeight;
-            const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
-            window.scrollTo({ top, behavior: 'smooth' });
+    // ===== SCROLL REVEAL =====
+    const animatedElements = document.querySelectorAll('.prog-card, .result-card, .about-text, .contact-info');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, i * 100);
+                observer.unobserve(entry.target);
+            }
         });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(el);
     });
 });
-
-const style = document.createElement('style');
-style.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
-document.head.appendChild(style);
