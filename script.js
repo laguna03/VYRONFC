@@ -51,7 +51,6 @@ const translations = {
         'contact.perk3': 'Sin ataduras',
         'contact.f.name': 'Tu nombre completo',
         'contact.f.phone': 'Teléfono / WhatsApp',
-        'contact.f.email': 'Correo electrónico',
         'contact.f.age': 'Tu edad',
         'contact.f.s0': 'Servicio de interés',
         'contact.f.s1': '1 a 1 Presencial',
@@ -126,7 +125,6 @@ const translations = {
         'contact.perk3': 'No strings attached',
         'contact.f.name': 'Your full name',
         'contact.f.phone': 'Phone / WhatsApp',
-        'contact.f.email': 'Email address',
         'contact.f.age': 'Your age',
         'contact.f.s0': 'Service of interest',
         'contact.f.s1': '1-on-1 In-Person',
@@ -208,8 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const SERVICE_ID = '[PONER_AQUÍ_TU_SERVICE_ID]';
-    const TEMPLATE_ID = '[PONER_AQUÍ_TU_TEMPLATE_ID]';
+    // ============================================
+    // WHATSAPP LEAD GENERATION ENGINE (NO EMAILJS)
+    // ============================================
+    const TRAINER_WHATSAPP = '[PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON]';
 
     const form = document.getElementById('contactForm');
     if (form) {
@@ -222,38 +222,48 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = 'Enviando...';
             btn.disabled = true;
 
-            const data = {
-                from_name : form.querySelector('[name="from_name"]').value.trim(),
-                phone     : form.querySelector('[name="phone"]').value.trim(),
-                reply_to  : form.querySelector('[name="reply_to"]').value.trim(),
-                age       : form.querySelector('[name="age"]').value.trim(),
-                service   : form.querySelector('[name="service"]').value,
-                goal      : form.querySelector('[name="goal"]').value,
-                message   : form.querySelector('[name="message"]').value.trim(),
-                to_email  : 'lagvnsoftware@gmail.com'
-            };
+            // 1. Recoger los datos del formulario
+            const name = form.querySelector('[name="from_name"]').value.trim();
+            const phone = form.querySelector('[name="phone"]').value.trim();
+            const age = form.querySelector('[name="age"]').value.trim();
+            const service = form.querySelector('[name="service"]').value;
+            const goal = form.querySelector('[name="goal"]').value;
+            const message = form.querySelector('[name="message"]').value.trim();
 
-            emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
-                .then(() => {
-                    const msg = currentLang === 'es'
-                        ? '✅ ¡Mensaje enviado! Recibirás tu evaluación en menos de 24 horas.'
-                        : '✅ Message sent! You will receive your assessment in less than 24 hours.';
+            // 2. Limpiar el número de WhatsApp (quitar +, espacios, guiones)
+            const cleanPhone = TRAINER_WHATSAPP.replace(/\s/g, '').replace(/\+/g, '').replace(/-/g, '');
 
-                    form.innerHTML = `
-                        <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; border-radius: 20px; padding: 24px; text-align: center; color: #FFFFFF; font-weight: 600; font-size: 1.1rem;">
-                            ${msg}
-                        </div>
-                    `;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                    alert('Error al enviar. Por favor, inténtalo de nuevo.');
-                });
+            // 3. Crear el mensaje de WhatsApp pre-escrito (Este mensaje le llega al ENTRENADOR)
+            const waMessage = encodeURIComponent(
+                `*NUEVO LEAD DE VYRON*\n` +
+                `---------------------------\n` +
+                `👤 Nombre: ${name}\n` +
+                `📞 Teléfono: ${phone}\n` +
+                `🎂 Edad: ${age}\n` +
+                `🏋️ Servicio: ${service}\n` +
+                `🎯 Objetivo: ${goal}\n` +
+                `💬 Mensaje: ${message}\n` +
+                `---------------------------\n` +
+                `¡Responde a este mensaje para iniciar el proceso!`
+            );
+
+            // 4. Abrir la conversación de WhatsApp en una nueva pestaña
+            window.open(`https://wa.me/${cleanPhone}?text=${waMessage}`, '_blank');
+
+            // 5. Mensaje de éxito
+            const successMsg = currentLang === 'es'
+                ? '✅ ¡Formulario enviado! Se ha abierto WhatsApp para que hables directamente con VYRON.'
+                : '✅ Form sent! WhatsApp has opened so you can chat directly with VYRON.';
+
+            form.innerHTML = `
+                <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; border-radius: 20px; padding: 24px; text-align: center; color: #FFFFFF; font-weight: 600; font-size: 1.1rem;">
+                    ${successMsg}
+                </div>
+            `;
         });
     }
 
+    // ===== SCROLL REVEAL =====
     const revealContainers = document.querySelectorAll('.programs-grid, .results-wrapper, .about-grid, .contact-wrapper');
 
     const observer = new IntersectionObserver((entries) => {
@@ -280,6 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
+    // ===== VIDEO AUTOPLAY =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
