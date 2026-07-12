@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                video.controls = false; // ✅ Asegura que los controles estén apagados al iniciar
+                video.controls = false;
                 video.play().catch(() => {});
             } else {
                 video.pause();
@@ -303,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // Cuando el video termina, mostramos momentáneamente los controles nativos
         video.addEventListener('ended', () => {
             video.controls = true;
             setTimeout(() => {
@@ -313,7 +312,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
 
-        // Cuando el usuario toca el video, mostramos los controles
         video.addEventListener('click', () => {
             video.controls = true;
         });
