@@ -101,11 +101,60 @@ img { max-width: 100%; display: block; }
 .hero-bg-glow { position: absolute; top: -50%; left: -20%; width: 80%; height: 150%; background: radial-gradient(ellipse, rgba(212, 175, 55, 0.06), transparent 70%); pointer-events: none; z-index: 0; }
 .hero-content { position: relative; z-index: 1; width: 100%; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.hero-text .hero-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: var(--gold); background: rgba(212, 175, 55, 0.1); padding: 6px 18px; border-radius: 50px; border: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 24px; }
-.hero-title { font-family: var(--ff-display); font-size: clamp(5rem, 12vw, 8rem); line-height: 0.85; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: #fff; margin-bottom: 24px; }
+.hero-text .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--ff-body);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+    padding: 10px 22px;
+    border-radius: 60px;
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.1);
+    position: relative;
+    margin-bottom: 24px;
+    width: fit-content;
+}
+.hero-text .hero-badge::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+.hero-text .hero-badge:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.1) 100%);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+.hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(5rem, 12vw, 8rem);
+    line-height: 0.85;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+}
 .hero-title .line-1, .hero-title .line-2 { display: block; text-shadow: 0 0 40px rgba(0,0,0,0.8); }
 .hero-title .line-3 { display: block; color: transparent; -webkit-text-stroke: 2px var(--gold); text-shadow: none; }
-.hero-desc { font-size: 1.2rem; color: var(--gray); margin-bottom: 36px; max-width: 440px; line-height: 1.8; }
+.hero-desc {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 36px;
+    max-width: 440px;
+    line-height: 1.8;
+}
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
 .social-proof { display: flex; gap: 32px; font-size: 0.95rem; color: var(--gray); }
 .social-proof strong { color: var(--white); font-weight: 800; }
@@ -273,5 +322,14 @@ img { max-width: 100%; display: block; }
         min-width: 280px;
         width: 280px;
         flex-shrink: 0;
+    }
+
+    /* ===== MOBILE: CERTIFICATION BADGE ===== */
+    .hero-text .hero-badge {
+        font-size: 0.7rem;
+        padding: 8px 16px;
+        letter-spacing: 1.5px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
