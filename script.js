@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // WHATSAPP LEAD GENERATION ENGINE
     // ============================================
-    const TRAINER_WHATSAPP = '[PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON]';
+    const TRAINER_WHATSAPP = '7873129897'; // ✅ NÚMERO ACTUALIZADO
 
     const form = document.getElementById('contactForm');
     if (form) {
@@ -302,10 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // Cuando el video termina, mostramos momentáneamente los controles nativos
         video.addEventListener('ended', () => {
             video.controls = true;
-            // Ocultamos los controles nuevamente después de 3 segundos si no se tocan
             setTimeout(() => {
                 if (!video.paused) {
                     video.controls = false;
@@ -313,7 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
 
-        // Cuando el usuario toca el video, mostramos los controles y dejamos que decida
         video.addEventListener('click', () => {
             video.controls = true;
         });

@@ -189,7 +189,7 @@ img { max-width: 100%; display: block; }
 .prog-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
 .prog-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
 
-/* === ABOUT (VIDEO + TEXT SIDE BY SIDE EVEN ON MOBILE) === */
+/* === ABOUT (VIDEO + TEXT SIDE BY SIDE) === */
 .about { padding: 100px 0; background: var(--bg); }
 .about-grid {
     display: grid;
@@ -274,17 +274,47 @@ img { max-width: 100%; display: block; }
     .nav-links { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-soft); flex-direction: column; padding: 80px 30px; gap: 20px; border-left: 1px solid var(--border); }
     .nav-links.open { display: flex; }
     .hamburger { display: flex; z-index: 1001; }
-    .programs-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-brand p { margin: 10px auto 0; }
     .hero-title { font-size: clamp(3.5rem, 10vw, 5rem); }
     .contact-wrapper { padding: 30px 20px; }
     .lang-item { margin-left: auto; }
 
-    /* ===== MOBILE: FORCE SIDE-BY-SIDE ON ABOUT ===== */
+    /* ===== MOBILE: HERO AND ABOUT STAY SIDE-BY-SIDE ===== */
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        align-items: center;
+    }
+    .hero-video-wrapper {
+        max-width: 100%;
+        aspect-ratio: 3/4;
+    }
+    .hero-desc {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+    .hero-actions {
+        margin-bottom: 16px;
+    }
+    .hero-text .hero-badge {
+        font-size: 0.65rem;
+        padding: 6px 12px;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+    .hero-title {
+        font-size: clamp(2.8rem, 8vw, 4rem);
+        margin-bottom: 12px;
+    }
+    .social-proof {
+        gap: 16px;
+        font-size: 0.8rem;
+    }
+
     .about-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 16px;
         align-items: center;
     }
     .about-video-wrapper {
@@ -293,16 +323,47 @@ img { max-width: 100%; display: block; }
     }
     .about-text h2 {
         font-size: 1.2rem;
+        margin-bottom: 10px;
     }
     .about-text p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
     }
     .about-stats {
-        gap: 16px;
+        gap: 12px;
         flex-wrap: wrap;
     }
+    .about-stats strong {
+        font-size: 1.5rem;
+    }
+    .about-stats span {
+        font-size: 0.75rem;
+    }
 
-    /* ===== MOBILE SIDE SCROLL (Results) ===== */
+    /* ===== MOBILE: PROGRAMS SIDE-SCROLL ===== */
+    .programs-wrapper {
+        overflow-x: auto;
+        overflow-y: visible;
+        padding-bottom: 20px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .programs-wrapper::-webkit-scrollbar { display: none; }
+    .programs-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 16px;
+        width: max-content;
+        padding: 0 4px;
+    }
+    .prog-card {
+        min-width: 240px;
+        width: 240px;
+        flex-shrink: 0;
+        padding: 24px 20px;
+    }
+
+    /* ===== MOBILE: RESULTS SIDE-SCROLL ===== */
     .results-wrapper {
         overflow-x: auto;
         overflow-y: visible;
@@ -319,17 +380,8 @@ img { max-width: 100%; display: block; }
         padding: 0 4px;
     }
     .result-card {
-        min-width: 280px;
-        width: 280px;
+        min-width: 260px;
+        width: 260px;
         flex-shrink: 0;
-    }
-
-    /* ===== MOBILE: CERTIFICATION BADGE ===== */
-    .hero-text .hero-badge {
-        font-size: 0.7rem;
-        padding: 8px 16px;
-        letter-spacing: 1.5px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
