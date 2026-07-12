@@ -12,18 +12,13 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        (function(){ emailjs.init({ publicKey: "[PONER_AQUÍ_TU_PUBLIC_KEY]" }); })();
-    </script>
 </head>
 <body>
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <!-- LOGO -->
             <a href="#" class="logo-container">
                 <img src="vyron-logo.png" alt="VYRON Logo" class="nav-logo-img">
             </a>
@@ -31,9 +26,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#programs" data-i18n="nav.programs">Programas</a></li>
                 <li><a href="#about" data-i18n="nav.about">El Método</a></li>
-                <li><a href="#results" data-i18n="nav.results">Resultados</a></li>
+                <li><a href="#results" data-i18n="nav.results">Acciones</a></li>
                 <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Evaluación Gratis</a></li>
-                <!-- SELECTOR DE IDIOMA -->
                 <li class="lang-item">
                     <button class="lang-toggle" id="langToggle">
                         <span class="lang-opt active" data-lang="es">ES</span>
@@ -49,7 +43,7 @@
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO (VIDEO 1) ===== -->
     <section class="hero" id="home">
         <div class="hero-bg-glow"></div>
         <div class="container hero-content">
@@ -75,8 +69,12 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <!-- Reemplaza este div con tu imagen del entrenador -->
-                    <div class="hero-image-mockup">VYRON</div>
+                    <!-- VIDEO 1 -->
+                    <div class="hero-video-wrapper">
+                        <video class="hero-video-player video-autoplay" controls muted playsinline>
+                            <source src="video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,30 +90,22 @@
             </div>
             <div class="programs-grid">
                 <div class="prog-card">
-                    <div class="prog-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20h12M12 4v16M4 4l2 2M20 4l-2 2"/></svg>
-                    </div>
+                    <div class="prog-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20h12M12 4v16M4 4l2 2M20 4l-2 2"/></svg></div>
                     <h3 data-i18n="programs.p1.title">1 a 1 Presencial</h3>
                     <p data-i18n="programs.p1.desc">Técnica impecable, motivación directa y resultados en cada sesión. Puerto Rico.</p>
                 </div>
                 <div class="prog-card">
-                    <div class="prog-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                    </div>
+                    <div class="prog-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
                     <h3 data-i18n="programs.p2.title">Coaching Online</h3>
                     <p data-i18n="programs.p2.desc">Entrena desde donde estés. Planes con video, ajuste de cargas y seguimiento.</p>
                 </div>
                 <div class="prog-card">
-                    <div class="prog-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2M2 12h4M18 12h4"/></svg>
-                    </div>
+                    <div class="prog-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2M2 12h4M18 12h4"/></svg></div>
                     <h3 data-i18n="programs.p3.title">Pérdida de Grasa</h3>
                     <p data-i18n="programs.p3.desc">Estrategias avanzadas de déficit calórico y hábitos que se quedan contigo.</p>
                 </div>
                 <div class="prog-card">
-                    <div class="prog-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-                    </div>
+                    <div class="prog-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
                     <h3 data-i18n="programs.p4.title">Ganancia Muscular</h3>
                     <p data-i18n="programs.p4.desc">Hipertrofia con progresión real, nutrición adaptada y biomecánica pura.</p>
                 </div>
@@ -123,12 +113,17 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- ===== ABOUT (VIDEO 2 - AHORA VERTICAL) ===== -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-visual">
-                    <div class="about-img-placeholder">VYRON EN ACCIÓN</div>
+                    <!-- VIDEO 2 (Vertical 3:4) -->
+                    <div class="about-video-wrapper">
+                        <video class="about-video-player video-autoplay" controls muted playsinline>
+                            <source src="video2.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
                 <div class="about-text">
                     <span class="eyebrow" data-i18n="about.tag">El Método</span>
@@ -143,22 +138,38 @@
         </div>
     </section>
 
-    <!-- ===== RESULTS ===== -->
+    <!-- ===== RESULTS (3 VIDEOS - ACCIONES) ===== -->
     <section class="results" id="results">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow" data-i18n="results.tag">Transformaciones</span>
-                <h2><span data-i18n="results.title1">Resultados que</span> <span class="gold-text" data-i18n="results.title2">gritan</span></h2>
+                <span class="eyebrow" data-i18n="results.tag">Acciones</span>
+                <h2><span data-i18n="results.title1">Acciones que</span> <span class="gold-text" data-i18n="results.title2">gritan</span></h2>
             </div>
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-placeholder" data-i18n="results.placeholder">ANTES / DESPUÉS</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-placeholder" data-i18n="results.placeholder">ANTES / DESPUÉS</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-placeholder" data-i18n="results.placeholder">ANTES / DESPUÉS</div>
+
+            <div class="results-wrapper">
+                <div class="results-grid">
+
+                    <!-- VIDEO 3 -->
+                    <div class="result-card result-video">
+                        <video class="result-video-player video-autoplay" controls muted playsinline>
+                            <source src="video3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <!-- VIDEO 4 -->
+                    <div class="result-card result-video">
+                        <video class="result-video-player video-autoplay" controls muted playsinline>
+                            <source src="video4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <!-- VIDEO 5 -->
+                    <div class="result-card result-video">
+                        <video class="result-video-player video-autoplay" controls muted playsinline>
+                            <source src="video5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -173,33 +184,16 @@
                     <h2><span data-i18n="contact.title1">¿Listo para</span> <span class="gold-text" data-i18n="contact.title2">romper</span> <span data-i18n="contact.title3">tus límites?</span></h2>
                     <p data-i18n="contact.desc">Llena el formulario. Recibirás una evaluación física completa y un plan de acción. Sin compromiso. Respuesta en <strong data-i18n="contact.time">menos de 24h</strong>.</p>
                     <div class="perks">
-                        <div>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span data-i18n="contact.perk1">Evaluación gratuita</span>
-                        </div>
-                        <div>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span data-i18n="contact.perk2">Plan 100% personalizado</span>
-                        </div>
-                        <div>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span data-i18n="contact.perk3">Sin ataduras</span>
-                        </div>
+                        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="contact.perk1">Evaluación gratuita</span></div>
+                        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="contact.perk2">Plan 100% personalizado</span></div>
+                        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="contact.perk3">Sin ataduras</span></div>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="from_name" placeholder="Tu nombre completo" data-i18n-placeholder="contact.f.name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="phone" placeholder="Teléfono / WhatsApp" data-i18n-placeholder="contact.f.phone" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="reply_to" placeholder="Correo electrónico" data-i18n-placeholder="contact.f.email">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="age" placeholder="Tu edad" data-i18n-placeholder="contact.f.age">
-                    </div>
+                    <div class="form-group"><input type="text" name="from_name" placeholder="Tu nombre completo" data-i18n-placeholder="contact.f.name" required></div>
+                    <div class="form-group"><input type="text" name="phone" placeholder="Teléfono / WhatsApp" data-i18n-placeholder="contact.f.phone" required></div>
+                    <div class="form-group"><input type="email" name="reply_to" placeholder="Correo electrónico" data-i18n-placeholder="contact.f.email"></div>
+                    <div class="form-group"><input type="number" name="age" placeholder="Tu edad" data-i18n-placeholder="contact.f.age"></div>
                     <div class="form-group">
                         <select name="service">
                             <option value="" data-i18n="contact.f.s0">Servicio de interés</option>
@@ -219,9 +213,7 @@
                             <option value="Otro" data-i18n="contact.f.g5">Otro</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="3" placeholder="Cuéntame sobre ti y tus metas..." data-i18n-placeholder="contact.f.msg"></textarea>
-                    </div>
+                    <div class="form-group"><textarea name="message" rows="3" placeholder="Cuéntame sobre ti y tus metas..." data-i18n-placeholder="contact.f.msg"></textarea></div>
                     <button type="submit" class="btn-primary full-width" data-i18n="contact.f.send">Enviar y obtener mi plan</button>
                 </form>
             </div>
@@ -238,7 +230,7 @@
             <div class="footer-links">
                 <a href="#programs" data-i18n="footer.l1">Programas</a>
                 <a href="#about" data-i18n="footer.l2">El Método</a>
-                <a href="#results" data-i18n="footer.l3">Resultados</a>
+                <a href="#results" data-i18n="footer.l3">Acciones</a>
                 <a href="#contact" data-i18n="footer.l4">Contacto</a>
             </div>
             <div class="footer-contact">
@@ -252,5 +244,10 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        (function(){ emailjs.init({ publicKey: "[PONER_AQUÍ_TU_PUBLIC_KEY]" }); })();
+    </script>
+
 </body>
 </html>

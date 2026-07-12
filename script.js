@@ -1,13 +1,9 @@
-/* =============================================
-   VYRON FITNESS - TRANSLATIONS ENGINE
-   ============================================= */
-
 const translations = {
     es: {
         'site.title': 'VYRON | Forja tu Mejor Versión',
         'nav.programs': 'Programas',
         'nav.about': 'El Método',
-        'nav.results': 'Resultados',
+        'nav.results': 'Acciones',
         'nav.cta': 'Evaluación Gratis',
         'hero.badge': 'ISSA CPT CERTIFIED',
         'hero.line1': 'NO',
@@ -41,10 +37,10 @@ const translations = {
         'about.stat1': 'Años forjando atletas',
         'about.stat2_num': '50+',
         'about.stat2': 'Clientes transformados',
-        'results.tag': 'Transformaciones',
-        'results.title1': 'Resultados que',
+        'results.tag': 'Acciones',
+        'results.title1': 'Acciones que',
         'results.title2': 'gritan',
-        'results.placeholder': 'ANTES / DESPUÉS',
+        'results.placeholder': 'ACCIONES / CLIPS',
         'contact.tag': 'Empieza hoy',
         'contact.title1': '¿Listo para',
         'contact.title2': 'romper',
@@ -73,7 +69,7 @@ const translations = {
         'footer.desc': 'Transformación física sin concesiones. 100% personalizado.',
         'footer.l1': 'Programas',
         'footer.l2': 'El Método',
-        'footer.l3': 'Resultados',
+        'footer.l3': 'Acciones',
         'footer.l4': 'Contacto',
         'footer.copy': '© 2026 VYRON Fitness. Powered by LAGVNSoftware.',
         'contact.time': 'menos de 24h'
@@ -82,7 +78,7 @@ const translations = {
         'site.title': 'VYRON | Forge Your Best Version',
         'nav.programs': 'Programs',
         'nav.about': 'The Method',
-        'nav.results': 'Results',
+        'nav.results': 'Actions',
         'nav.cta': 'Free Assessment',
         'hero.badge': 'ISSA CPT CERTIFIED',
         'hero.line1': 'DO NOT',
@@ -116,10 +112,10 @@ const translations = {
         'about.stat1': 'Years forging athletes',
         'about.stat2_num': '50+',
         'about.stat2': 'Clients transformed',
-        'results.tag': 'Transformations',
-        'results.title1': 'Results that',
+        'results.tag': 'Actions',
+        'results.title1': 'Actions that',
         'results.title2': 'scream',
-        'results.placeholder': 'BEFORE / AFTER',
+        'results.placeholder': 'ACTIONS / CLIPS',
         'contact.tag': 'Start today',
         'contact.title1': 'Ready to',
         'contact.title2': 'break',
@@ -148,16 +144,12 @@ const translations = {
         'footer.desc': 'Physical transformation with no concessions. 100% customized.',
         'footer.l1': 'Programs',
         'footer.l2': 'The Method',
-        'footer.l3': 'Results',
+        'footer.l3': 'Actions',
         'footer.l4': 'Contact',
         'footer.copy': '© 2026 VYRON Fitness. Powered by LAGVNSoftware.',
         'contact.time': 'less than 24h'
     }
 };
-
-/* =============================================
-   ENGINE: LANG MANAGEMENT & RENDER
-   ============================================= */
 
 let currentLang = localStorage.getItem('vyronLang') || 'es';
 
@@ -165,45 +157,29 @@ function applyTranslations(lang) {
     const t = translations[lang];
     if (!t) return;
 
-    // Actualizar todos los textos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
-        if (t[key] !== undefined) {
-            el.innerHTML = t[key];
-        }
+        if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
-    // Actualizar placeholders de inputs/textarea
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.dataset.i18nPlaceholder;
-        if (t[key] !== undefined) {
-            el.placeholder = t[key];
-        }
+        if (t[key] !== undefined) el.placeholder = t[key];
     });
 
-    // Actualizar el título de la página
-    if (t['site.title']) {
-        document.title = t['site.title'];
-    }
+    if (t['site.title']) document.title = t['site.title'];
 
-    // Actualizar el estado activo del botón de idioma
     document.querySelectorAll('.lang-opt').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
-    // Guardar preferencia
     localStorage.setItem('vyronLang', lang);
 }
 
-/* =============================================
-   DOM READY
-   ============================================= */
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Aplicar idioma guardado al cargar
     applyTranslations(currentLang);
 
-    // Lógica del botón de idioma
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
         langToggle.addEventListener('click', () => {
@@ -212,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== NAVBAR & MENÚ MÓVIL =====
     const navbar = document.querySelector('.navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -233,8 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== EMAILJS =====
-    // ⚠️ REEMPLAZA ESTOS VALORES
     const SERVICE_ID = '[PONER_AQUÍ_TU_SERVICE_ID]';
     const TEMPLATE_ID = '[PONER_AQUÍ_TU_TEMPLATE_ID]';
 
@@ -263,8 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
             emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
                 .then(() => {
                     const msg = currentLang === 'es'
-                        ? ' ¡Mensaje enviado! Recibirás tu evaluación en menos de 24 horas.'
-                        : ' Message sent! You will receive your assessment in less than 24 hours.';
+                        ? '✅ ¡Mensaje enviado! Recibirás tu evaluación en menos de 24 horas.'
+                        : '✅ Message sent! You will receive your assessment in less than 24 hours.';
 
                     form.innerHTML = `
                         <div style="background: rgba(212,175,55,0.1); border: 1px solid #D4AF37; border-radius: 20px; padding: 24px; text-align: center; color: #FFFFFF; font-weight: 600; font-size: 1.1rem;">
@@ -281,25 +254,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== SCROLL REVEAL =====
-    const animatedElements = document.querySelectorAll('.prog-card, .result-card, .about-text, .contact-info');
+    const revealContainers = document.querySelectorAll('.programs-grid, .results-wrapper, .about-grid, .contact-wrapper');
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, i * 100);
+                const items = entry.target.children;
+                Array.from(items).forEach((child, i) => {
+                    setTimeout(() => {
+                        child.style.opacity = '1';
+                        child.style.transform = 'translateY(0)';
+                    }, i * 100);
+                });
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-        observer.observe(el);
+    revealContainers.forEach(container => {
+        Array.from(container.children).forEach(child => {
+            child.style.opacity = '0';
+            child.style.transform = 'translateY(40px)';
+            child.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+        observer.observe(container);
     });
+
+    const videos = document.querySelectorAll('.video-autoplay');
+
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    videos.forEach(video => {
+        videoObserver.observe(video);
+    });
+
 });
