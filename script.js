@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
-    // WHATSAPP LEAD GENERATION ENGINE (NO EMAILJS)
+    // WHATSAPP LEAD GENERATION ENGINE
     // ============================================
     const TRAINER_WHATSAPP = '[PONER_AQUÍ_EL_NÚMERO_DE_WHATSAPP_DE_VYRON]';
 
@@ -222,7 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = 'Enviando...';
             btn.disabled = true;
 
-            // 1. Recoger los datos del formulario
             const name = form.querySelector('[name="from_name"]').value.trim();
             const phone = form.querySelector('[name="phone"]').value.trim();
             const age = form.querySelector('[name="age"]').value.trim();
@@ -230,10 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const goal = form.querySelector('[name="goal"]').value;
             const message = form.querySelector('[name="message"]').value.trim();
 
-            // 2. Limpiar el número de WhatsApp (quitar +, espacios, guiones)
             const cleanPhone = TRAINER_WHATSAPP.replace(/\s/g, '').replace(/\+/g, '').replace(/-/g, '');
 
-            // 3. Crear el mensaje de WhatsApp pre-escrito (Este mensaje le llega al ENTRENADOR)
             const waMessage = encodeURIComponent(
                 `*NUEVO LEAD DE VYRON*\n` +
                 `---------------------------\n` +
@@ -247,10 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 `¡Responde a este mensaje para iniciar el proceso!`
             );
 
-            // 4. Abrir la conversación de WhatsApp en una nueva pestaña
             window.open(`https://wa.me/${cleanPhone}?text=${waMessage}`, '_blank');
 
-            // 5. Mensaje de éxito
             const successMsg = currentLang === 'es'
                 ? '✅ ¡Formulario enviado! Se ha abierto WhatsApp para que hables directamente con VYRON.'
                 : '✅ Form sent! WhatsApp has opened so you can chat directly with VYRON.';
@@ -290,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY =====
+    // ===== VIDEO AUTOPLAY & CUSTOM UI CONTROLS =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
@@ -306,6 +301,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     videos.forEach(video => {
         videoObserver.observe(video);
+
+        // Cuando el video termina, mostramos momentáneamente los controles nativos
+        video.addEventListener('ended', () => {
+            video.controls = true;
+            // Ocultamos los controles nuevamente después de 3 segundos si no se tocan
+            setTimeout(() => {
+                if (!video.paused) {
+                    video.controls = false;
+                }
+            }, 3000);
+        });
+
+        // Cuando el usuario toca el video, mostramos los controles y dejamos que decida
+        video.addEventListener('click', () => {
+            video.controls = true;
+        });
     });
 
 });
