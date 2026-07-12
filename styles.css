@@ -189,7 +189,7 @@ img { max-width: 100%; display: block; }
 .prog-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
 .prog-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
 
-/* === ABOUT (VIDEO + TEXT SIDE BY SIDE) === */
+/* === ABOUT === */
 .about { padding: 100px 0; background: var(--bg); }
 .about-grid {
     display: grid;
@@ -219,7 +219,7 @@ img { max-width: 100%; display: block; }
 .about-stats strong { font-size: 2rem; font-family: var(--ff-display); display: block; }
 .about-stats span { font-size: 0.9rem; color: var(--gray); }
 
-/* ===== RESULTS & SIDE-SCROLL ===== */
+/* ===== RESULTS ===== */
 .results { padding: 100px 0; background: var(--bg-soft); }
 .results-wrapper { width: 100%; }
 .results-grid {
@@ -280,42 +280,55 @@ img { max-width: 100%; display: block; }
     .contact-wrapper { padding: 30px 20px; }
     .lang-item { margin-left: auto; }
 
-    /* ===== MOBILE: HERO AND ABOUT STAY SIDE-BY-SIDE ===== */
+    /* ===== MOBILE: HERO SIDE-BY-SIDE (Video más grande) ===== */
     .hero-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        align-items: center;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 12px;
+        align-items: start;
+        text-align: left;
     }
     .hero-video-wrapper {
         max-width: 100%;
         aspect-ratio: 3/4;
     }
     .hero-desc {
-        font-size: 0.9rem;
-        margin-bottom: 16px;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+        max-width: 100%;
     }
     .hero-actions {
-        margin-bottom: 16px;
-    }
-    .hero-text .hero-badge {
-        font-size: 0.65rem;
-        padding: 6px 12px;
-        letter-spacing: 1px;
         margin-bottom: 12px;
+        gap: 8px;
     }
-    .hero-title {
-        font-size: clamp(2.8rem, 8vw, 4rem);
-        margin-bottom: 12px;
-    }
-    .social-proof {
-        gap: 16px;
+    .hero-actions .btn, .hero-actions .btn-glass {
+        padding: 10px 18px;
         font-size: 0.8rem;
     }
+    .hero-text .hero-badge {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
+        margin-bottom: 8px;
+        line-height: 0.9;
+    }
+    .social-proof {
+        gap: 12px;
+        font-size: 0.75rem;
+    }
+    .hero-text {
+        padding-top: 4px;
+    }
 
+    /* ===== MOBILE: ABOUT SIDE-BY-SIDE (Video más grande) ===== */
     .about-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        align-items: center;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 12px;
+        align-items: start;
+        text-align: left;
     }
     .about-video-wrapper {
         max-width: 100%;
@@ -323,21 +336,26 @@ img { max-width: 100%; display: block; }
     }
     .about-text h2 {
         font-size: 1.2rem;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        line-height: 1.1;
     }
     .about-text p {
-        font-size: 0.85rem;
-        margin-bottom: 16px;
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+        line-height: 1.5;
     }
     .about-stats {
-        gap: 12px;
+        gap: 10px;
         flex-wrap: wrap;
     }
     .about-stats strong {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .about-stats span {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+    .about-text {
+        padding-top: 4px;
     }
 
     /* ===== MOBILE: PROGRAMS SIDE-SCROLL ===== */
@@ -357,10 +375,16 @@ img { max-width: 100%; display: block; }
         padding: 0 4px;
     }
     .prog-card {
-        min-width: 240px;
-        width: 240px;
+        min-width: 220px;
+        width: 220px;
         flex-shrink: 0;
-        padding: 24px 20px;
+        padding: 20px 16px;
+    }
+    .prog-card h3 {
+        font-size: 1rem;
+    }
+    .prog-card p {
+        font-size: 0.8rem;
     }
 
     /* ===== MOBILE: RESULTS SIDE-SCROLL ===== */
@@ -380,8 +404,8 @@ img { max-width: 100%; display: block; }
         padding: 0 4px;
     }
     .result-card {
-        min-width: 260px;
-        width: 260px;
+        min-width: 220px;
+        width: 220px;
         flex-shrink: 0;
     }
 }
