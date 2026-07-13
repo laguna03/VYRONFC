@@ -240,8 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `🏋️ Servicio: ${service}\n` +
                 `🎯 Objetivo: ${goal}\n` +
                 `💬 Mensaje: ${message}\n` +
-                `---------------------------\n` +
-                `¡Responde a este mensaje para iniciar el proceso!`
+                `---------------------------\n`
             );
 
             window.open(`https://wa.me/${cleanPhone}?text=${waMessage}`, '_blank');
