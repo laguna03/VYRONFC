@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // WHATSAPP LEAD GENERATION ENGINE
     // ============================================
-    const TRAINER_WHATSAPP = '7873129897';
+    const TRAINER_WHATSAPP = '7872048668'; // ✅ NÚMERO ACTUALIZADO
 
     const form = document.getElementById('contactForm');
     if (form) {
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & CUSTOM UI CONTROLS =====
+    // ===== VIDEO AUTOPLAY & CONTROLS =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
