@@ -159,8 +159,8 @@ img { max-width: 100%; display: block; }
 .social-proof { display: flex; gap: 32px; font-size: 0.95rem; color: var(--gray); }
 .social-proof strong { color: var(--white); font-weight: 800; }
 
-/* === HERO VIDEO === */
-.hero-video-wrapper {
+/* === HERO VIDEO - DESKTOP ONLY === */
+.hero-video-wrapper-desktop {
     width: 100%;
     aspect-ratio: 3/4;
     max-width: 400px;
@@ -176,6 +176,11 @@ img { max-width: 100%; display: block; }
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* === HERO MOBILE BACKGROUND (Oculto en desktop) === */
+.hero-video-bg-mobile {
+    display: none;
 }
 
 .programs { padding: 100px 0; background: var(--bg-soft); }
@@ -197,7 +202,7 @@ img { max-width: 100%; display: block; }
     gap: 60px;
     align-items: center;
 }
-.about-video-wrapper {
+.about-video-wrapper-desktop {
     width: 100%;
     aspect-ratio: 3/4;
     max-width: 400px;
@@ -218,6 +223,11 @@ img { max-width: 100%; display: block; }
 .about-stats { display: flex; gap: 40px; }
 .about-stats strong { font-size: 2rem; font-family: var(--ff-display); display: block; }
 .about-stats span { font-size: 0.9rem; color: var(--gray); }
+
+/* === ABOUT MOBILE BACKGROUND (Oculto en desktop) === */
+.about-video-bg-mobile {
+    display: none;
+}
 
 /* ===== RESULTS ===== */
 .results { padding: 100px 0; background: var(--bg-soft); }
@@ -266,7 +276,7 @@ img { max-width: 100%; display: block; }
     .hero-desc { margin: 0 auto 36px; }
     .hero-actions { justify-content: center; }
     .social-proof { justify-content: center; }
-    .hero-video-wrapper { margin: 40px auto 0; max-width: 300px; }
+    .hero-video-wrapper-desktop { margin: 40px auto 0; max-width: 300px; }
     .programs-grid { grid-template-columns: 1fr 1fr; }
     .contact-wrapper { grid-template-columns: 1fr; padding: 40px 30px; }
 }
@@ -276,79 +286,96 @@ img { max-width: 100%; display: block; }
     .hamburger { display: flex; z-index: 1001; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-brand p { margin: 10px auto 0; }
-    .hero-title { font-size: clamp(2.5rem, 7vw, 3.5rem); }
     .contact-wrapper { padding: 30px 20px; }
     .lang-item { margin-left: auto; }
 
-    /* ===== MOBILE: HERO & ABOUT SIDE-BY-SIDE WITH BETTER PROPORTIONS ===== */
-    .hero-grid, .about-grid {
-        grid-template-columns: 0.8fr 1fr;
-        gap: 12px;
-        align-items: start;
-        text-align: left;
+    /* ===== MOBILE: HERO AS BACKGROUND (VIDEO DETRÁS, TEXTO CENTRADO) ===== */
+    .hero-mobile-bg {
+        position: relative;
+        padding: 140px 0 80px;
+        min-height: 80vh;
+        background: #000;
+        overflow: hidden;
     }
-    .hero-video-wrapper, .about-video-wrapper {
-        max-width: 100%;
-        aspect-ratio: 3/4;
+    .hero-video-bg-mobile {
+        display: block;
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 0;
     }
-    .hero-desc {
-        font-size: 0.8rem;
-        margin-bottom: 12px;
-        max-width: 100%;
+    .hero-video-bg-mobile video {
+        width: 100%; height: 100%; object-fit: cover;
+        opacity: 0.3;
     }
-    .hero-actions {
-        margin-bottom: 12px;
-        gap: 6px;
+    .hero-mobile-bg .hero-content {
+        position: relative;
+        z-index: 1;
     }
-    .hero-actions .btn, .hero-actions .btn-glass {
-        padding: 8px 14px;
-        font-size: 0.7rem;
+    .hero-mobile-bg .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0;
     }
-    .hero-text .hero-badge {
-        font-size: 0.55rem;
-        padding: 4px 10px;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
+    .hero-video-wrapper-desktop {
+        display: none !important;
     }
-    .hero-title {
-        font-size: clamp(2rem, 7vw, 2.8rem);
-        margin-bottom: 8px;
-        line-height: 0.9;
+    .hero-mobile-bg .hero-text .hero-badge {
+        margin-left: auto; margin-right: auto;
     }
-    .social-proof {
-        gap: 10px;
-        font-size: 0.7rem;
+    .hero-mobile-bg .hero-desc {
+        margin: 0 auto 24px auto;
+        max-width: 90%;
     }
-    .hero-text {
-        padding-top: 0;
+    .hero-mobile-bg .hero-actions {
+        justify-content: center;
+    }
+    .hero-mobile-bg .social-proof {
+        justify-content: center;
+    }
+    .hero-mobile-bg .hero-title {
+        font-size: clamp(2.8rem, 8vw, 3.6rem);
     }
 
-    .about-video-wrapper {
-        max-width: 100%;
-        aspect-ratio: 3/4;
+    /* ===== MOBILE: ABOUT AS BACKGROUND ===== */
+    .about-mobile-bg {
+        position: relative;
+        padding: 100px 0 80px;
+        background: #000;
+        overflow: hidden;
     }
-    .about-text h2 {
-        font-size: 1.4rem;
-        margin-bottom: 6px;
-        line-height: 1.1;
+    .about-video-bg-mobile {
+        display: block;
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 0;
     }
-    .about-text p {
-        font-size: 0.75rem;
-        margin-bottom: 10px;
-        line-height: 1.5;
+    .about-video-bg-mobile video {
+        width: 100%; height: 100%; object-fit: cover;
+        opacity: 0.25;
     }
-    .about-stats {
-        gap: 10px;
-        flex-wrap: wrap;
+    .about-mobile-bg .container {
+        position: relative;
+        z-index: 1;
     }
-    .about-stats strong {
-        font-size: 1.2rem;
+    .about-mobile-bg .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0;
     }
-    .about-stats span {
-        font-size: 0.65rem;
+    .about-video-wrapper-desktop {
+        display: none !important;
     }
-    .about-text {
-        padding-top: 0;
+    .about-mobile-bg .about-text .eyebrow {
+        justify-content: center;
+    }
+    .about-mobile-bg .about-text h2 {
+        font-size: 2.2rem;
+    }
+    .about-mobile-bg .about-text p {
+        max-width: 90%; margin: 0 auto 24px auto;
+    }
+    .about-mobile-bg .about-stats {
+        justify-content: center;
     }
 
     /* ===== MOBILE: PROGRAMS SIDE-SCROLL ===== */
@@ -398,4 +425,3 @@ img { max-width: 100%; display: block; }
         flex-shrink: 0;
     }
 }
-
