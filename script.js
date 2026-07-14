@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP FALLBACK =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP FALLBACK (VERSIÓN UNIVERSAL) =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
@@ -303,13 +303,19 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // ✅ BUCLE INFINITO GARANTIZADO (Rebobina al inicio al terminar)
+        // ✅ BUCLE INFINITO GARANTIZADO (Funciona en Móvil Y Desktop)
         video.addEventListener('ended', () => {
             video.currentTime = 0;
-            video.play().catch(() => {});
-
-            // Control de interfaz
             video.controls = true;
+
+            // Pequeño retraso para saltar las restricciones de todos los navegadores
+            setTimeout(() => {
+                video.play().catch(() => {
+                    video.controls = true;
+                });
+            }, 100);
+
+            // Ocultar controles si sigue reproduciéndose después de 3 segundos
             setTimeout(() => {
                 if (!video.paused) {
                     video.controls = false;
