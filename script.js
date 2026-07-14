@@ -303,9 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // ✅ BUCLE INFINITO GARANTIZADO POR JAVASCRIPT
+        // ✅ BUCLE INFINITO GARANTIZADO (Rebobina al inicio al terminar)
         video.addEventListener('ended', () => {
+            video.currentTime = 0;
             video.play().catch(() => {});
+
             // Control de interfaz
             video.controls = true;
             setTimeout(() => {
