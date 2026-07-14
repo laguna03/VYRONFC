@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // WHATSAPP LEAD GENERATION ENGINE
     // ============================================
-    const TRAINER_WHATSAPP = '7872048668'; // ✅ NÚMERO ACTUALIZADO
+    const TRAINER_WHATSAPP = '7872048668';
 
     const form = document.getElementById('contactForm');
     if (form) {
@@ -240,7 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 `🏋️ Servicio: ${service}\n` +
                 `🎯 Objetivo: ${goal}\n` +
                 `💬 Mensaje: ${message}\n` +
-                `---------------------------\n`
+                `---------------------------\n` +
+                `¡Responde a este mensaje para iniciar el proceso!`
             );
 
             window.open(`https://wa.me/${cleanPhone}?text=${waMessage}`, '_blank');
@@ -284,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & CONTROLS =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP FALLBACK =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
@@ -302,7 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
+        // ✅ BUCLE INFINITO GARANTIZADO POR JAVASCRIPT
         video.addEventListener('ended', () => {
+            video.play().catch(() => {});
+            // Control de interfaz
             video.controls = true;
             setTimeout(() => {
                 if (!video.paused) {
