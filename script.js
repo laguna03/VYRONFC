@@ -285,4 +285,49 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP (VERSIÓN DEFINITIVA CON LOAD()) =====
+    const videos = document.querySelectorAll('.video-autoplay');
+
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.loop = true;
+                video.controls = false;
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    videos.forEach(video => {
+        videoObserver.observe(video);
+
+        // ✅ ARREGLO DEFINITIVO PARA GITHUB PAGES
+        video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.load(); // <--- ESTO ES LO QUE LO ARREGLA. Recarga el video desde cero.
+
+            // Pequeña espera para que el navegador procese el load()
+            setTimeout(() => {
+                video.play().catch(() => {
+                    // Si el navegador bloquea la reproducción, forzamos que aparezcan los controles
+                    video.controls = true;
+                });
+            }, 150);
+
+            // Ocultar controles si sigue reproduciéndose después de 2 segundos
+            setTimeout(() => {
+                if (!video.paused) {
+                    video.controls = false;
+                }
+            }, 2000);
+        });
+
+        video.addEventListener('click', () => {
+            video.controls = true;
+        });
+    });
+
 });
