@@ -285,16 +285,15 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP (VERSIÓN DEFINITIVA PARA GITHUB PAGES) =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP (VERSIÓN DEFINITIVA CON LOAD()) =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                video.controls = false;
-                // FORZAMOS EL BUCLE POR JAVASCRIPT
                 video.loop = true;
+                video.controls = false;
                 video.play().catch(() => {});
             } else {
                 video.pause();
@@ -305,16 +304,18 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // RESPUESTA DE EMERGENCIA SI EL NAVEGADOR IGNORA EL LOOP
+        // ✅ ARREGLO DEFINITIVO PARA GITHUB PAGES
         video.addEventListener('ended', () => {
             video.currentTime = 0;
-            video.controls = true;
-            // Pequeño retraso para saltar las restricciones del navegador
+            video.load(); // <--- ESTO ES LO QUE LO ARREGLA. Recarga el video desde cero.
+
+            // Pequeña espera para que el navegador procese el load()
             setTimeout(() => {
                 video.play().catch(() => {
+                    // Si el navegador bloquea la reproducción, forzamos que aparezcan los controles
                     video.controls = true;
                 });
-            }, 50);
+            }, 150);
 
             // Ocultar controles si sigue reproduciéndose después de 2 segundos
             setTimeout(() => {
