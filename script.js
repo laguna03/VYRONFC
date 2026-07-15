@@ -285,15 +285,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY AL HACER SCROLL (SIN INTERFERENCIAS EN EL LOOP) =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP FALLBACK =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // Simplemente lo reproduce cuando entra en pantalla.
-                // La etiqueta HTML <video loop> se encarga del bucle infinito.
+                video.controls = false;
                 video.play().catch(() => {});
             } else {
                 video.pause();
@@ -303,8 +302,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     videos.forEach(video => {
         videoObserver.observe(video);
-        // No hay evento 'ended'.
-        // El navegador usará el 'loop' nativo del HTML para dar vueltas infinitas.
+
+        // ✅ BUCLE INFINITO GARANTIZADO POR JAVASCRIPT
+        video.addEventListener('ended', () => {
+            video.play().catch(() => {});
+            // Control de interfaz
+            video.controls = true;
+            setTimeout(() => {
+                if (!video.paused) {
+                    video.controls = false;
+                }
+            }, 3000);
+        });
+
+        video.addEventListener('click', () => {
+            video.controls = true;
+        });
     });
 
 });
