@@ -285,14 +285,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP (SIN TOQUES. SE ACTIVA SOLO AL HACER SCROLL) =====
+    // ===== VIDEO AUTOPLAY AL HACER SCROLL + LOOP INFINITO (SIN TOCAR LA PANTALLA) =====
     const videos = document.querySelectorAll('.video-autoplay');
 
+    // Cuando el video entra en la pantalla gracias a tu scroll, se activa automáticamente
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // Cuando el video entra en pantalla (gracias a tu scroll), se desbloquea y reproduce
                 video.loop = true;
                 video.controls = false;
                 video.play().catch(() => {});
@@ -305,13 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // Mantener el bucle infinito aunque la etiqueta loop falle
+        // Bucle infinito robusto (se activa cuando termina)
         video.addEventListener('ended', () => {
             video.currentTime = 0;
-            video.load();
+            video.load(); // Reinicia el video completamente
 
             setTimeout(() => {
                 video.play().catch(() => {
+                    // Si falla, muestra los controles para que el usuario pueda darle manualmente
                     video.controls = true;
                 });
             }, 150);
@@ -323,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
         });
 
+        // Si el usuario toca el video, muestra los controles
         video.addEventListener('click', () => {
             video.controls = true;
         });
