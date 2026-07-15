@@ -285,24 +285,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP (SIN TOQUES. SE ACTIVA SOLO AL HACER SCROLL) =====
     const videos = document.querySelectorAll('.video-autoplay');
-
-    // ✅ PARCHE PARA SAFARI EN IPHONE: DESBLOQUEAR AL TOCAR LA PANTALLA
-    const unlockVideos = () => {
-        videos.forEach(video => {
-            video.play().catch(() => {});
-        });
-        document.removeEventListener('click', unlockVideos);
-        document.removeEventListener('touchstart', unlockVideos);
-    };
-    document.addEventListener('click', unlockVideos, { once: true });
-    document.addEventListener('touchstart', unlockVideos, { once: true });
 
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
+                // Cuando el video entra en pantalla (gracias a tu scroll), se desbloquea y reproduce
                 video.loop = true;
                 video.controls = false;
                 video.play().catch(() => {});
@@ -315,6 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
+        // Mantener el bucle infinito aunque la etiqueta loop falle
         video.addEventListener('ended', () => {
             video.currentTime = 0;
             video.load();
