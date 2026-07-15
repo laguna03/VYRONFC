@@ -285,16 +285,15 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY AL HACER SCROLL + LOOP INFINITO (SIN TOCAR LA PANTALLA) =====
+    // ===== VIDEO AUTOPLAY AL HACER SCROLL (SIN INTERFERENCIAS EN EL LOOP) =====
     const videos = document.querySelectorAll('.video-autoplay');
 
-    // Cuando el video entra en la pantalla gracias a tu scroll, se activa automáticamente
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                video.loop = true;
-                video.controls = false;
+                // Simplemente lo reproduce cuando entra en pantalla.
+                // La etiqueta HTML <video loop> se encarga del bucle infinito.
                 video.play().catch(() => {});
             } else {
                 video.pause();
@@ -304,30 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     videos.forEach(video => {
         videoObserver.observe(video);
-
-        // Bucle infinito robusto (se activa cuando termina)
-        video.addEventListener('ended', () => {
-            video.currentTime = 0;
-            video.load(); // Reinicia el video completamente
-
-            setTimeout(() => {
-                video.play().catch(() => {
-                    // Si falla, muestra los controles para que el usuario pueda darle manualmente
-                    video.controls = true;
-                });
-            }, 150);
-
-            setTimeout(() => {
-                if (!video.paused) {
-                    video.controls = false;
-                }
-            }, 2000);
-        });
-
-        // Si el usuario toca el video, muestra los controles
-        video.addEventListener('click', () => {
-            video.controls = true;
-        });
+        // No hay evento 'ended'.
+        // El navegador usará el 'loop' nativo del HTML para dar vueltas infinitas.
     });
 
 });
