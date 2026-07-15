@@ -285,13 +285,32 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP FALLBACK =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP =====
     const videos = document.querySelectorAll('.video-autoplay');
+
+    // ✅ TRUCO PARA SAFARI/IPHONE: DESBLOQUEA LOS VIDEOS EN EL PRIMER TOQUE DE PANTALLA (SCROLL)
+    let userInteracted = false;
+    const unlockVideosOnTouch = () => {
+        if (userInteracted) return;
+        userInteracted = true;
+        videos.forEach(video => {
+            video.loop = true;
+            video.controls = false;
+            video.play().catch(() => {}); // Este simple play desbloquea el permiso
+        });
+        document.removeEventListener('touchstart', unlockVideosOnTouch);
+        document.removeEventListener('click', unlockVideosOnTouch);
+    };
+    // Se activa automáticamente en el momento que tocas la pantalla para hacer scroll
+    document.addEventListener('touchstart', unlockVideosOnTouch, { passive: true, once: true });
+    document.addEventListener('click', unlockVideosOnTouch, { once: true });
 
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
+                // El navegador ya está desbloqueado por el paso anterior
+                video.loop = true;
                 video.controls = false;
                 video.play().catch(() => {});
             } else {
@@ -303,16 +322,22 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // ✅ BUCLE INFINITO GARANTIZADO POR JAVASCRIPT
+        // Bucle infinito robusto
         video.addEventListener('ended', () => {
-            video.play().catch(() => {});
-            // Control de interfaz
-            video.controls = true;
+            video.currentTime = 0;
+            video.load();
+
+            setTimeout(() => {
+                video.play().catch(() => {
+                    video.controls = true;
+                });
+            }, 150);
+
             setTimeout(() => {
                 if (!video.paused) {
                     video.controls = false;
                 }
-            }, 3000);
+            }, 2000);
         });
 
         video.addEventListener('click', () => {
