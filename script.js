@@ -285,8 +285,19 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP (VERSIÓN DEFINITIVA CON LOAD) =====
+    // ===== VIDEO AUTOPLAY & INFINITE LOOP =====
     const videos = document.querySelectorAll('.video-autoplay');
+
+    // ✅ PARCHE PARA SAFARI EN IPHONE: DESBLOQUEAR AL TOCAR LA PANTALLA
+    const unlockVideos = () => {
+        videos.forEach(video => {
+            video.play().catch(() => {});
+        });
+        document.removeEventListener('click', unlockVideos);
+        document.removeEventListener('touchstart', unlockVideos);
+    };
+    document.addEventListener('click', unlockVideos, { once: true });
+    document.addEventListener('touchstart', unlockVideos, { once: true });
 
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -304,10 +315,9 @@ document.addEventListener('DOMContentLoaded', () => {
     videos.forEach(video => {
         videoObserver.observe(video);
 
-        // ✅ ARREGLO DEFINITIVO PARA GITHUB PAGES (Móvil y Desktop)
         video.addEventListener('ended', () => {
             video.currentTime = 0;
-            video.load(); // <--- ESTO OBLIGA AL NAVEGADOR A REINICIARLO
+            video.load();
 
             setTimeout(() => {
                 video.play().catch(() => {
