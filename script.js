@@ -3,7 +3,7 @@ const translations = {
         'site.title': 'VYRON | Forja tu Mejor Versión',
         'nav.programs': 'Programas',
         'nav.about': 'El Método',
-        'nav.results': 'Acciones',
+        'nav.results': 'Resultados',
         'nav.cta': 'Evaluación Gratis',
         'hero.badge': 'ISSA CPT CERTIFIED',
         'hero.line1': 'NO',
@@ -37,10 +37,10 @@ const translations = {
         'about.stat1': 'Años forjando atletas',
         'about.stat2_num': '50+',
         'about.stat2': 'Clientes transformados',
-        'results.tag': 'Acciones',
-        'results.title1': 'Acciones que',
+        'results.tag': 'Transformaciones',
+        'results.title1': 'Resultados que',
         'results.title2': 'gritan',
-        'results.placeholder': 'ACCIONES / CLIPS',
+        'results.placeholder': 'ANTES / DESPUÉS',
         'contact.tag': 'Empieza hoy',
         'contact.title1': '¿Listo para',
         'contact.title2': 'romper',
@@ -68,7 +68,7 @@ const translations = {
         'footer.desc': 'Transformación física sin concesiones. 100% personalizado.',
         'footer.l1': 'Programas',
         'footer.l2': 'El Método',
-        'footer.l3': 'Acciones',
+        'footer.l3': 'Resultados',
         'footer.l4': 'Contacto',
         'footer.copy': '© 2026 VYRON Fitness. Powered by LAGVNSoftware.',
         'contact.time': 'menos de 24h'
@@ -77,7 +77,7 @@ const translations = {
         'site.title': 'VYRON | Forge Your Best Version',
         'nav.programs': 'Programs',
         'nav.about': 'The Method',
-        'nav.results': 'Actions',
+        'nav.results': 'Results',
         'nav.cta': 'Free Assessment',
         'hero.badge': 'ISSA CPT CERTIFIED',
         'hero.line1': 'DO NOT',
@@ -111,10 +111,10 @@ const translations = {
         'about.stat1': 'Years forging athletes',
         'about.stat2_num': '50+',
         'about.stat2': 'Clients transformed',
-        'results.tag': 'Actions',
-        'results.title1': 'Actions that',
+        'results.tag': 'Transformations',
+        'results.title1': 'Results that',
         'results.title2': 'scream',
-        'results.placeholder': 'ACTIONS / CLIPS',
+        'results.placeholder': 'BEFORE / AFTER',
         'contact.tag': 'Start today',
         'contact.title1': 'Ready to',
         'contact.title2': 'break',
@@ -142,7 +142,7 @@ const translations = {
         'footer.desc': 'Physical transformation with no concessions. 100% customized.',
         'footer.l1': 'Programs',
         'footer.l2': 'The Method',
-        'footer.l3': 'Actions',
+        'footer.l3': 'Results',
         'footer.l4': 'Contact',
         'footer.copy': '© 2026 VYRON Fitness. Powered by LAGVNSoftware.',
         'contact.time': 'less than 24h'
@@ -285,33 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY & INFINITE LOOP =====
+    // ===== VIDEO AUTOPLAY AL HACER SCROLL (SIN INTERFERENCIAS EN EL LOOP) =====
     const videos = document.querySelectorAll('.video-autoplay');
-
-    // ✅ TRUCO PARA SAFARI/IPHONE: DESBLOQUEA LOS VIDEOS EN EL PRIMER TOQUE DE PANTALLA (SCROLL)
-    let userInteracted = false;
-    const unlockVideosOnTouch = () => {
-        if (userInteracted) return;
-        userInteracted = true;
-        videos.forEach(video => {
-            video.loop = true;
-            video.controls = false;
-            video.play().catch(() => {}); // Este simple play desbloquea el permiso
-        });
-        document.removeEventListener('touchstart', unlockVideosOnTouch);
-        document.removeEventListener('click', unlockVideosOnTouch);
-    };
-    // Se activa automáticamente en el momento que tocas la pantalla para hacer scroll
-    document.addEventListener('touchstart', unlockVideosOnTouch, { passive: true, once: true });
-    document.addEventListener('click', unlockVideosOnTouch, { once: true });
 
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // El navegador ya está desbloqueado por el paso anterior
-                video.loop = true;
-                video.controls = false;
                 video.play().catch(() => {});
             } else {
                 video.pause();
@@ -321,28 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     videos.forEach(video => {
         videoObserver.observe(video);
-
-        // Bucle infinito robusto
-        video.addEventListener('ended', () => {
-            video.currentTime = 0;
-            video.load();
-
-            setTimeout(() => {
-                video.play().catch(() => {
-                    video.controls = true;
-                });
-            }, 150);
-
-            setTimeout(() => {
-                if (!video.paused) {
-                    video.controls = false;
-                }
-            }, 2000);
-        });
-
-        video.addEventListener('click', () => {
-            video.controls = true;
-        });
     });
 
 });
