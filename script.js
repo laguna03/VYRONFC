@@ -41,6 +41,7 @@ const translations = {
         'results.title1': 'Resultados que',
         'results.title2': 'gritan',
         'results.placeholder': 'ANTES / DESPUÉS',
+        'results.hint': 'Tocar imagen para ver cambios',
         'contact.tag': 'Empieza hoy',
         'contact.title1': '¿Listo para',
         'contact.title2': 'romper',
@@ -115,6 +116,7 @@ const translations = {
         'results.title1': 'Results that',
         'results.title2': 'scream',
         'results.placeholder': 'BEFORE / AFTER',
+        'results.hint': 'Tap image to reveal changes',
         'contact.tag': 'Start today',
         'contact.title1': 'Ready to',
         'contact.title2': 'break',
@@ -206,9 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ============================================
-    // WHATSAPP LEAD GENERATION ENGINE
-    // ============================================
     const TRAINER_WHATSAPP = '7872048668';
 
     const form = document.getElementById('contactForm');
@@ -258,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== SCROLL REVEAL =====
     const revealContainers = document.querySelectorAll('.programs-grid, .results-wrapper, .about-grid, .contact-wrapper');
 
     const observer = new IntersectionObserver((entries) => {
@@ -285,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 
-    // ===== VIDEO AUTOPLAY AL HACER SCROLL (SIN INTERFERENCIAS EN EL LOOP) =====
     const videos = document.querySelectorAll('.video-autoplay');
 
     const videoObserver = new IntersectionObserver((entries) => {

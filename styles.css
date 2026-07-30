@@ -249,7 +249,7 @@ img { max-width: 100%; display: block; }
 .about-stats span { font-size: 0.9rem; color: var(--gray); }
 .about-video-bg-mobile { display: none; }
 
-/* ===== BEFORE & AFTER (DISEÑO PREMIUM CON EFECTO CUBIERTA) ===== */
+/* ===== BEFORE & AFTER (CON NUEVO TEXTO DE AYUDA) ===== */
 .results { padding: 100px 0; background: var(--bg-soft); }
 .results-wrapper { width: 100%; }
 .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -290,7 +290,6 @@ img { max-width: 100%; display: block; }
 .ba-before { z-index: 1; }
 .ba-before .ba-badge { background: rgba(0,0,0,0.8); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
 
-/* Imagen de "Después" cubre a la de "Antes" con un deslizamiento desde arriba */
 .ba-after {
     z-index: 2;
     clip-path: inset(100% 0 0 0);
@@ -316,7 +315,6 @@ img { max-width: 100%; display: block; }
     z-index: 5;
 }
 
-/* Línea divisoria dorada que se desliza junto con la imagen */
 .ba-handle {
     position: absolute;
     left: 0;
@@ -331,6 +329,31 @@ img { max-width: 100%; display: block; }
 }
 .ba-card:hover .ba-handle {
     clip-path: inset(0 0 0 0);
+}
+
+/* ✅ NUEVO ESTILO DEL TEXTO DE AYUDA */
+.ba-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--gold-light);
+    z-index: 10;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+.ba-card:hover .ba-hint {
+    opacity: 0; /* Se desvanece cuando el usuario interactúa con la tarjeta */
 }
 
 .contact { padding: 100px 0; background: var(--bg); }
@@ -415,48 +438,46 @@ img { max-width: 100%; display: block; }
     .about-mobile-bg .about-text p { max-width: 90%; margin: 0 auto 24px auto; }
     .about-mobile-bg .about-stats { justify-content: center; }
 
-    /* ===== MOBILE: PROGRAMS GRID (ESTILO CUADRADO SIN SCROLL) ===== */
     .programs-wrapper {
-        overflow-x: visible; /* Elimina el desplazamiento lateral */
+        overflow-x: visible;
         padding-bottom: 0;
     }
     .programs-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 columnas perfectas */
+        grid-template-columns: 1fr 1fr;
         gap: 12px;
         width: 100%;
         padding: 0;
     }
     .prog-card {
-        width: 100%; /* Ocupa todo el ancho de su columna */
+        width: 100%;
         min-width: 0;
-        aspect-ratio: 1 / 1; /* ¡Convierte la tarjeta en un cuadrado perfecto! */
+        aspect-ratio: 1 / 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 12px 10px; /* Ajustamos el relleno */
+        padding: 12px 10px;
     }
     .prog-icon {
         margin-bottom: 8px;
     }
     .prog-icon svg {
-        width: 28px; /* Reducimos el tamaño del icono para que quepa */
+        width: 28px;
         height: 28px;
     }
     .prog-card h3 {
-        font-size: 0.9rem; /* Texto un poco más pequeño */
+        font-size: 0.9rem;
         margin-bottom: 6px;
         line-height: 1.2;
     }
     .prog-card p {
-        font-size: 0.7rem; /* Texto de descripción más pequeño */
+        font-size: 0.7rem;
         line-height: 1.3;
         margin: 0;
     }
 
-    /* ===== MOBILE SIDE SCROLL FOR RESULTS (SE MANTIENE EL SIDE-SCROLL AQUÍ) ===== */
     .results-wrapper {
         overflow-x: auto;
         overflow-y: visible;
