@@ -415,7 +415,48 @@ img { max-width: 100%; display: block; }
     .about-mobile-bg .about-text p { max-width: 90%; margin: 0 auto 24px auto; }
     .about-mobile-bg .about-stats { justify-content: center; }
 
-    /* ===== MOBILE SIDE SCROLL FOR RESULTS ===== */
+    /* ===== MOBILE: PROGRAMS GRID (ESTILO CUADRADO SIN SCROLL) ===== */
+    .programs-wrapper {
+        overflow-x: visible; /* Elimina el desplazamiento lateral */
+        padding-bottom: 0;
+    }
+    .programs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columnas perfectas */
+        gap: 12px;
+        width: 100%;
+        padding: 0;
+    }
+    .prog-card {
+        width: 100%; /* Ocupa todo el ancho de su columna */
+        min-width: 0;
+        aspect-ratio: 1 / 1; /* ¡Convierte la tarjeta en un cuadrado perfecto! */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 12px 10px; /* Ajustamos el relleno */
+    }
+    .prog-icon {
+        margin-bottom: 8px;
+    }
+    .prog-icon svg {
+        width: 28px; /* Reducimos el tamaño del icono para que quepa */
+        height: 28px;
+    }
+    .prog-card h3 {
+        font-size: 0.9rem; /* Texto un poco más pequeño */
+        margin-bottom: 6px;
+        line-height: 1.2;
+    }
+    .prog-card p {
+        font-size: 0.7rem; /* Texto de descripción más pequeño */
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    /* ===== MOBILE SIDE SCROLL FOR RESULTS (SE MANTIENE EL SIDE-SCROLL AQUÍ) ===== */
     .results-wrapper {
         overflow-x: auto;
         overflow-y: visible;
